@@ -14,7 +14,7 @@ module.exports = {
   ],
   resolve: {
     modules: [__dirname, "src", "node_modules"],
-    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"]
   },
   module: {
     rules: [
@@ -36,7 +36,10 @@ module.exports = {
         test: /\.png|svg|jpg|gif$/,
         use: ["file-loader"],
       }, 
-    ],
+    ]
   },
-  stats: "errors-only"
+  stats: "errors-only",
+  devServer: {
+    historyApiFallback: true
+  }
 };

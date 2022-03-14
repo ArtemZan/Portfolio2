@@ -1,0 +1,70 @@
+.page.about-page {
+  padding: 20px;
+  font-family: "Aldrich";
+}
+
+@media screen and (min-width: 600px) {
+  .page.about-page {
+    padding: var(--xxl);
+  }
+}
+
+.page.about-page .pivot {
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background-color: var(--green);
+}
+
+.page.about-page .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page.about-page .header .connector {
+  margin-right: -3px;
+}
+
+.page.about-page .header .text {
+  color: white;
+  font-size: var(--xl);
+  border: 3px solid var(--green);
+  padding: 5px 20px;
+}
+
+.page.about-page .info {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+}
+
+.page.about-page .info .connector {
+  margin-right: -3px;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  width: 110px;
+}
+
+.page.about-page .info .content-wrapper {
+  border: 3px solid var(--cyan);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page.about-page .info .content-wrapper .content {
+  padding: 10px;
+  color: white;
+}

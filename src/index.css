@@ -1,4 +1,4 @@
-@import "pages/index.css";
+@import "pages/pages.css";
 @import "components/Components.css";
 @import "./Common.css";
 
@@ -9,14 +9,15 @@ body{
 
 :root{
     --green: #2BD900;
-    --light-green: #00FF85;
+    
+    --cyan: #00FF85;
     --dark-cyan: #006666;
 
     --xs: calc();
     --s: calc();
     --m: calc(1vw + 10px);
-    --l: calc();
-    --xl: calc();
+    --l: calc(2vw + 15px);
+    --xl: calc(3vw + 25px);
     --xxl: calc(6vw + 30px);
 }
 
@@ -24,6 +25,7 @@ body{
     :root
     {
         --m: calc(1 * 14.4px + 10px);
+        --xl: calc(3 * 14.4px + 25px);
         --xxl: calc(6 * 14.4px + 30px);
     }
 }

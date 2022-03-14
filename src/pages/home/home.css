@@ -59,6 +59,7 @@
 .page.home-page .arrows {
   position: absolute;
   inset: 0;
+  z-index: -1;
 }
 
 .page.home-page .arrows > * {

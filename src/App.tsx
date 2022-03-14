@@ -1,16 +1,17 @@
 import { StrictMode } from "react";
 import { Route } from "react-router";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "./pages/home";
+import About from "./pages/about/about";
+import Home from "./pages/home/home";
 
 export default function App() {
     return (
-            <Router>
+        <Router>
 
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<Home />} />
-                </Routes>
-            </Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+            </Routes>
+        </Router>
     )
 }

@@ -1,0 +1,8 @@
+@import "home/home.css";
+@import "about/about.css";
+
+.page
+{
+    background-color: black;
+    min-height: 100vh;
+}

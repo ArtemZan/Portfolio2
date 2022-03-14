@@ -1,0 +1,69 @@
+.page.about-page
+{
+    padding: 20px;
+    font-family: "Aldrich";
+
+    @media screen and (min-width: 600px) {
+        padding: var(--xxl);
+    }
+
+    .pivot
+    {
+        position: absolute;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background-color: var(--green);
+    }
+
+    
+    .header
+    {
+        display: flex;
+        //margin-left: calc(var(--xxl));
+        
+        .connector
+        {
+            margin-right: -3px;
+        }
+        
+        .text
+        {
+            color: white;
+            font-size: var(--xl);
+    
+            border: 3px solid var(--green);
+            padding: 5px 20px;
+        }
+    }
+
+    .info
+    {
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        transition: height 0.5s;
+
+        .connector
+        {
+            margin-right: -3px;
+            transition: opacity 1s;
+            width: 110px;
+        }
+
+        .content-wrapper
+        {
+            border: 3px solid var(--cyan);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+
+            .content
+            {
+                padding: 10px;
+                
+                color: white;
+            }
+        }
+    }
+}
