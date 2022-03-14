@@ -1,0 +1,10 @@
+.hoverable
+{
+    opacity: 0.8;
+    transition: opacity 0.3s;
+
+    &:hover
+    {
+        opacity: 1;
+    }
+}

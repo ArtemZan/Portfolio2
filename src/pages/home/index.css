@@ -1,0 +1,162 @@
+.page.home-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  --white-space: 20px;
+  padding: var(--white-space);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media screen and (min-width: 600px) {
+  .page.home-page {
+    --white-space: var(--xxl);
+  }
+}
+
+.page.home-page .header {
+  width: calc(var(--xxl) * 7);
+  max-width: 100%;
+  font-family: "Aldrich";
+  text-align: left;
+  color: white;
+  white-space: pre-line;
+}
+
+.page.home-page .header header {
+  font-size: var(--xxl);
+  line-height: 1;
+}
+
+.page.home-page .header h5 {
+  font-size: var(--m);
+  margin: 0;
+  line-height: 2;
+}
+
+.page.home-page .background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.page.home-page .background > img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
+}
+
+.page.home-page .arrows {
+  position: absolute;
+  inset: 0;
+}
+
+.page.home-page .arrows > * {
+  display: none;
+  position: absolute;
+}
+
+@media screen and (min-width: 600px) {
+  .page.home-page .arrows > * {
+    display: block;
+  }
+}
+
+.page.home-page .arrows .arrow-1 {
+  width: calc(var(--xxl) * 6.5 - 120px);
+  top: calc(var(--xxl) * 3.5 + 20px);
+  left: var(--white-space);
+}
+
+.page.home-page .arrows .arrow-2 {
+  width: calc(0.2% + 0.5px);
+  height: calc(100% - var(--xxl) * 3.5 - 30px);
+  top: calc(var(--xxl) * 3.5 + 30px);
+  left: calc(var(--white-space) + 0.7vw + 1px);
+  background-color: var(--green);
+}
+
+.page.home-page .arrows .arrow-3 {
+  display: block;
+  height: 150px;
+  top: calc(var(--white-space) + var(--xxl) * 3);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media screen and (min-width: 600px) {
+  .page.home-page .arrows .arrow-3 {
+    height: calc(var(--xxl) * 2 + 10px);
+    top: calc(var(--white-space));
+    left: calc(var(--white-space) + var(--xxl) * 8.3 - 150px);
+    -webkit-transform: initial;
+            transform: initial;
+  }
+}
+
+.page.home-page .arrows .arrow-4 {
+  height: calc(var(--xxl) * 0.02 + 0.5px);
+  width: calc(100% - var(--white-space) - var(--xxl) * 8.3 + 145px);
+  left: calc(var(--white-space) + var(--xxl) * 8.3 - 145px);
+  top: calc(var(--white-space) + var(--xxl) * 0.05 + 1px);
+  background-color: var(--green);
+}
+
+.page.home-page .link.about {
+  white-space: nowrap;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 600px) {
+  .page.home-page .link.about {
+    margin-left: calc(var(--xxl) * 8 - 200px);
+    margin-top: calc(var(--xxl) * 0.2);
+  }
+}
+
+.page.home-page .secondary-links {
+  margin: 100px auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page.home-page .secondary-links .link:first-child {
+  margin-bottom: 20px;
+  margin-right: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .page.home-page .secondary-links {
+    display: block;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin-left: calc(var(--xxl) * 7.3 - 165px);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  .page.home-page .secondary-links .link:first-child {
+    margin-right: calc(var(--xxl) * 1 - 50px);
+  }
+}

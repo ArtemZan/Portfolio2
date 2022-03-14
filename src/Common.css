@@ -1,0 +1,9 @@
+.hoverable {
+  opacity: 0.8;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.hoverable:hover {
+  opacity: 1;
+}
