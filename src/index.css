@@ -13,8 +13,8 @@ body{
     --cyan: #00FF85;
     --dark-cyan: #006666;
 
-    --xs: calc();
-    --s: calc();
+    --xs: calc(10px);
+    --s: calc(0.5vw + 10px);
     --m: calc(1vw + 10px);
     --l: calc(2vw + 15px);
     --xl: calc(3vw + 25px);

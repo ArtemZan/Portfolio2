@@ -1,3 +1,7 @@
+.page {
+  box-sizing: border-box;
+}
+
 .hoverable {
   opacity: 0.8;
   -webkit-transition: opacity 0.3s;

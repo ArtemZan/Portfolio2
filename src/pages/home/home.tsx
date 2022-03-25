@@ -48,10 +48,10 @@ export default function Home(): JSX.Element {
             <div className="arrow-4" />
         </div>
 
-        <Link className = "about" link = "/about" content = "About me"/>
+        <Link hoverable primary className = "about" link = "/about" content = "About me"/>
         <div className = "secondary-links">
-            <Link secondary link = "/projects">My projects</Link>
-            <Link secondary link = "/contact">Contact me</Link>
+            <Link hoverable secondary link = "/projects">My projects</Link>
+            <Link hoverable secondary link = "/contact">Contact me</Link>
         </div>
     </div>
 }

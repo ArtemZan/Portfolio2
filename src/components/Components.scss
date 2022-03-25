@@ -1,18 +1,147 @@
 .button,
 .link
 {
-    background-color: var(--light-green);
     text-decoration: none;
-    color: black;
     display: inline-block;
-    padding: 10px 40px;
-    border-radius: 5px;
-
+    
     font-size: var(--m);
     font-family: "Aldrich";
-
+    
+    &.primary,
+    &.secondary
+    {
+        padding: 10px 40px;
+        border-radius: 5px;
+    }
+    
     &.secondary{
         background-color: var(--dark-cyan);
         color: white;
     }
+    
+    &.primary
+    {
+        background-color: var(--green);
+        color: black;
+    }
+}
+
+
+.tooltip-wrapper
+{
+    position: relative;
+
+    .tooltip
+    {
+        position: absolute;
+
+        padding: 5px;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s;
+        color: black;
+        background-color: white;
+
+        &.top
+        {
+            top: -10px;
+            left: 50%;
+            transform: translate(-50%, -100%);
+
+            &::before
+            {
+                bottom: -4px;
+                left: calc(50% - 5px);
+            }    
+        }
+
+        &.bottom
+        {
+            bottom: -10px;
+            left: 50%;
+            transform: translate(-50%, 100%);
+
+            &::before
+            {
+                top: -4px;
+                left: calc(50% - 5px);
+            }    
+        }
+
+        &.right
+        {
+            top: 50%;
+            right: -10px;
+            transform: translate(100%, -50%);
+
+            &::before
+            {
+                left: -4px;
+                bottom: calc(50% - 5px);
+            }    
+        }
+
+        &.left
+        {
+            top: 50%;
+            left: -10px;
+            transform: translate(-100%, -50%);
+
+            &::before
+            {
+                right: -4px;
+                bottom: calc(50% - 5px);
+            }    
+        }
+
+        &::before
+        {
+            content: "";
+
+            width: 10px;
+            height: 10px;
+            transform: rotate(45deg);
+            background-color: white;
+            position: absolute;
+            z-index: -1;
+        }
+
+    }
+
+    &:hover .tooltip,
+    .tooltip:hover
+    {
+        opacity: 0.8;
+        visibility: visible;
+    }
+}
+
+
+.dropdown
+{
+    color: white;
+    position: relative;
+
+    .dropdown__button
+    {
+        border: none;
+        
+    }
+    
+    .dropdown__items
+    {
+        position: absolute;
+        visibility: hidden;
+        list-style: none;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    &.dropdown--open .dropdown__items
+    {
+        visibility: visible;
+    }
+    
 }

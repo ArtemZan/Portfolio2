@@ -50,19 +50,18 @@
     .arrows {
         position: absolute;
         inset: 0;
-        z-index: -1;
+        pointer-events: none;
 
         > * {
             display: none;
             position: absolute;
         }
-        
+
         @media screen and (min-width: 600px) {
             > * {
                 display: block;
             }
         }
-        
 
         .arrow-1 {
             width: calc(var(--xxl) * 6.5 - 120px);
@@ -82,11 +81,11 @@
         .arrow-3 {
             display: block;
             height: 150px;
-            
+
             top: calc(var(--white-space) + var(--xxl) * 3);
             left: 50%;
             transform: translateX(-50%);
-            
+
             @media screen and (min-width: 600px) {
                 height: calc(var(--xxl) * 2 + 10px);
                 top: calc(var(--white-space));
@@ -104,19 +103,17 @@
         }
     }
 
-    .link {
-        &.about {
-            white-space: nowrap;
-            margin-top: 200px;
-            margin-left: auto;
-            margin-right: auto;
+    .link.about {
+        white-space: nowrap;
+        margin-top: 200px;
+        margin-left: auto;
+        margin-right: auto;
 
-            @media screen and (min-width: 600px) {
-                margin-left: calc(var(--xxl) * 8 - 200px);
-                margin-top: calc(var(--xxl) * 0.2);
-                //margin-right: 0;
-                //transform: translate(-50%, -50%);
-            }
+        @media screen and (min-width: 600px) {
+            margin-left: calc(var(--xxl) * 8 - 200px);
+            margin-top: calc(var(--xxl) * 0.2);
+            //margin-right: 0;
+            //transform: translate(-50%, -50%);
         }
     }
 

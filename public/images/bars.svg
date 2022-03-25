@@ -1,0 +1,5 @@
+<svg width="47" height="35" viewBox="0 0 50 32" fill="#00FF85" xmlns="http://www.w3.org/2000/svg">
+<line x1 = "0" y1 = "4" x2 = "50" y2 = "4" fill = "green" style = "stroke: #00FF85;stroke-width: 4"/>
+<line x1 = "0" y1 = "16" x2 = "50" y2 = "16" style = "stroke: #00FF85;stroke-width: 4"/>
+<line x1 = "0" y1 = "28" x2 = "50" y2 = "28" style = "stroke: #00FF85;stroke-width: 4"/>
+</svg>
