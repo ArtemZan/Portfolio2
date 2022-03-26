@@ -39,6 +39,26 @@
                 visibility: visible;
 
                 transition: margin-bottom 0.5s;
+
+                li
+                {
+                    padding: 30px var(--xl);
+
+                    
+                    .link
+                    {
+                        img
+                        {
+                            width: var(--xl)
+                        }
+
+                        display: flex;
+                        align-items: center;
+                        color: var(--cyan);
+                        font-size: var(--l);
+                        gap: var(--l);
+                    }
+                }
             }
 
             .dropdown__button {
@@ -68,20 +88,11 @@
                         
 
                         transform-origin: center;
-                        // &:first-child
-                        // {
-                        //     transform-origin: 10px 0;
-                        // }
-
-                        // &:last-child {
-                        //     transform-origin: bottom left;
-                        // }
                     }
                 }
             }
 
             &.dropdown--open {
-                //background-color: black;
                 transform: translateY(0);
                 top: 0;
 

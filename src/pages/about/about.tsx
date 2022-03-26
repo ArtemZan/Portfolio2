@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { Dropdown, Link, Position, Tooltip } from "../../components/Components";
 import { Card, CardContent, ImageProps } from "./card"
 
-function Menu()
-{
+function Menu() {
     const [closed, SetClosed] = useState(true)
 
     return <div className="menu" >
@@ -15,13 +14,16 @@ function Menu()
                     <line x1="0" y1="28" x2="50" y2="28" />
                 </svg>
             }
-            items={[1, 2, 3]}
+            items={[
+                <Link link="/"><img src="images/home.svg" alt="home" />Home</Link>,
+                <Link link="/contact"><img src="images/contact.svg" alt="contact" />Contact me</Link>,
+                <Link link="/projects"><img src="images/project.svg" alt="project" />Projects</Link>]}
             closeOnSecondClick
-            closed = {closed}
-            onOpen = {() => SetClosed(false)}
+            closed={closed}
+            onOpen={() => SetClosed(false)}
         />
 
-        <div className="background" onClick = {e => {e.stopPropagation(); SetClosed(true)}}/>
+        <div className="background" onClick={e => { e.stopPropagation(); SetClosed(true) }} />
     </div>
 }
 
@@ -121,7 +123,7 @@ export default function About() {
     }, [])
 
     return <div className="page about-page">
-        <Menu/>
+        <Menu />
 
         <div className="sidebar">
             <div className="navigation">

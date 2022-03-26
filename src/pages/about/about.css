@@ -60,6 +60,26 @@
   transition: margin-bottom 0.5s;
 }
 
+.page.about-page .menu .dropdown .dropdown__items li {
+  padding: 30px var(--xl);
+}
+
+.page.about-page .menu .dropdown .dropdown__items li .link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--cyan);
+  font-size: var(--l);
+  gap: var(--l);
+}
+
+.page.about-page .menu .dropdown .dropdown__items li .link img {
+  width: var(--xl);
+}
+
 .page.about-page .menu .dropdown .dropdown__button {
   color: var(--cyan);
   background-color: transparent;
