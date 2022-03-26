@@ -40,6 +40,9 @@ module.exports = {
   },
   stats: "errors-only",
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    allowedHosts: [
+      "artem.loca.lt"
+    ]
   }
 };

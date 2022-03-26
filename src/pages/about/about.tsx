@@ -62,6 +62,7 @@ export default function About() {
     const showedCards = useRef<JSX.Element[]>([])
     const [cardsShowed, SetCardsShowed] = useState(0)
     const images = useRef<HTMLImageElement[]>([])
+    const touchStartPos = useRef(-1)
 
     function OnClick() {
         if (document.scrollingElement.scrollTop >= document.scrollingElement.scrollHeight - window.innerHeight) {
@@ -71,6 +72,19 @@ export default function About() {
 
     function OnScroll(e: WheelEvent) {
         if (e.deltaY > 0 && document.scrollingElement.scrollTop >= document.scrollingElement.scrollHeight - window.innerHeight) {
+            ShowNextCard()
+        }
+    }
+
+    function OnTouchStart(e: TouchEvent)
+    {
+        touchStartPos.current = e.touches[0].clientY
+    }
+    
+    function OnTouchEnd(e: TouchEvent)
+    {
+        if(e.touches[0].clientY < touchStartPos.current && document.scrollingElement.scrollTop >= document.scrollingElement.scrollHeight - window.innerHeight)
+        {
             ShowNextCard()
         }
     }
@@ -115,10 +129,15 @@ export default function About() {
 
         window.addEventListener("click", OnClick)
         window.addEventListener("wheel", OnScroll)
+        window.addEventListener("touchstart", OnTouchStart)
+        window.addEventListener("touchmove", OnTouchEnd)
 
         return () => {
             window.removeEventListener("click", OnClick)
             window.removeEventListener("wheel", OnScroll)
+            window.removeEventListener("touchstart", OnTouchStart)
+            window.removeEventListener("touchmove", OnTouchEnd)
+
         }
     }, [])
 

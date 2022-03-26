@@ -14,11 +14,21 @@ body{
     --dark-cyan: #006666;
 
     --xs: calc(10px);
-    --s: calc(0.5vw + 10px);
-    --m: calc(1vw + 10px);
-    --l: calc(2vw + 15px);
-    --xl: calc(3vw + 25px);
-    --xxl: calc(6vw + 30px);
+    --s: calc(0.25vw + 0.25 * 6px + 10px);
+    --m: calc(0.5vw + 0.5 * 6px + 10px);
+    --l: calc(1vw + 1 * 6px + 15px);
+    --xl: calc(1.5vw + 1.5 * 6px + 25px);
+    --xxl: calc(3vw + 3 * 6px + 30px);
+}
+
+@media screen and (min-width: 600px) {
+    :root{    
+        --s: calc(0.5vw + 10px);
+        --m: calc(1vw + 10px);
+        --l: calc(2vw + 15px);
+        --xl: calc(3vw + 25px);
+        --xxl: calc(6vw + 30px);
+    }
 }
 
 @media screen and (min-width: 1440px) {
