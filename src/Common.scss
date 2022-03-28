@@ -1,3 +1,10 @@
+.page {
+    box-sizing: border-box;
+    background-color: black;
+    min-height: 100vh;
+    z-index: 0;
+}
+
 .hoverable
 {
     opacity: 0.8;

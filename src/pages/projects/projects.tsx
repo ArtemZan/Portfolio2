@@ -1,5 +1,6 @@
 import { cloneElement, PropsWithChildren } from "react";
 import { Link } from "../../components/Components";
+import { Dropdown, Footer, Navbar } from "../components/components";
 
 type ProjectProps = PropsWithChildren<{
     title: string
@@ -24,6 +25,9 @@ function Project(props: ProjectProps) {
 
 export default function Projects() {
     return <div className="page projects-page">
+        <Navbar currentPage = {2}></Navbar>
+        <Dropdown currentPage = {2}/>
+
         <img src="images/factory.svg" alt="factory" className="background" />
 
         <header className="title">
@@ -36,7 +40,7 @@ export default function Projects() {
                 Nevertheless I’ve done the website and I learnt a lot while doing it. This was my first website. Most of what I know about CSS and React I learnt by doing julemy.
                 This is how it looks now: {<Link link="https://julemy.netlify.app/">Julemy</Link>}. Not really impressive, right? Obviously there are a lot of things to be fixed and improved,
                 but it is not so bad for the first website. This website has gone through many redesigns before I ended up with this. There even was a 3D idea: </p>
-            <video style={{ width: "100%", marginTop: "20px" }} controls src="images/projects/julemy3d.mp4" />
+            <video style={{ marginTop: "20px" }} controls src="images/projects/julemy3d.mp4" />
 
         </Project>
 
@@ -76,5 +80,7 @@ export default function Projects() {
         <div className="coming-soon">
             Coming soon...
         </div>
+
+        <Footer currentPage = {2}/>
     </div>
 }

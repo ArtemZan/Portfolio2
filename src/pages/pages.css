@@ -1,10 +1,4 @@
 @import "home/home.css";
 @import "about/about.css";
 @import "projects/projects.css";
-
-.page
-{
-    background-color: black;
-    min-height: 100vh;
-    z-index: 0;
-}
+@import "components/components.css";

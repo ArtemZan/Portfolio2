@@ -14,7 +14,7 @@ body{
     --dark-cyan: #006666;
 
     --xs: calc(10px);
-    --s: calc(0.25vw + 0.25 * 6px + 10px);
+    --s: calc(0.5 * 6px + 10px);
     --m: calc(0.5vw + 0.5 * 6px + 10px);
     --l: calc(1vw + 1 * 6px + 15px);
     --xl: calc(1.5vw + 1.5 * 6px + 25px);

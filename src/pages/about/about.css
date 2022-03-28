@@ -9,147 +9,8 @@
 @media screen and (min-width: 600px) {
   .page.about-page {
     padding: var(--xxl);
+    padding-top: var(--m);
   }
-}
-
-.page.about-page .menu {
-  position: fixed;
-  inset: 0;
-  z-index: 5;
-}
-
-@media screen and (min-width: 600px) {
-  .page.about-page .menu {
-    display: none;
-  }
-}
-
-.page.about-page .menu .dropdown {
-  z-index: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transform: translateY(calc(-100% + 70px));
-          transform: translateY(calc(-100% + 70px));
-  -webkit-transition: background-color 0.5s, -webkit-transform 0.5s;
-  transition: background-color 0.5s, -webkit-transform 0.5s;
-  transition: transform 0.5s, background-color 0.5s;
-  transition: transform 0.5s, background-color 0.5s, -webkit-transform 0.5s;
-}
-
-.page.about-page .menu .dropdown .dropdown__items {
-  z-index: 100;
-  color: white;
-  width: 100%;
-  border-bottom: 3px solid var(--green);
-  margin-bottom: 33px;
-  -webkit-box-ordinal-group: 0;
-      -ms-flex-order: -1;
-          order: -1;
-  position: static;
-  background-color: black;
-  visibility: visible;
-  -webkit-transition: margin-bottom 0.5s;
-  transition: margin-bottom 0.5s;
-}
-
-.page.about-page .menu .dropdown .dropdown__items li {
-  padding: 30px var(--xl);
-}
-
-.page.about-page .menu .dropdown .dropdown__items li .link {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: var(--cyan);
-  font-size: var(--l);
-  gap: var(--l);
-}
-
-.page.about-page .menu .dropdown .dropdown__items li .link img {
-  width: var(--xl);
-}
-
-.page.about-page .menu .dropdown .dropdown__button {
-  color: var(--cyan);
-  background-color: transparent;
-  position: relative;
-}
-
-.page.about-page .menu .dropdown .dropdown__button::before {
-  content: "";
-  position: absolute;
-  background-color: #0008;
-  z-index: -1;
-  inset: -10px;
-  border-radius: 10px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-}
-
-.page.about-page .menu .dropdown .dropdown__button svg {
-  width: 50px;
-  overflow: visible;
-}
-
-.page.about-page .menu .dropdown .dropdown__button svg > * {
-  -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
-  transition: opacity 0.5s, -webkit-transform 0.5s;
-  transition: transform 0.5s, opacity 0.5s;
-  transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
-  stroke: var(--cyan);
-  stroke-width: 4px;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-}
-
-.page.about-page .menu .dropdown.dropdown--open {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  top: 0;
-}
-
-.page.about-page .menu .dropdown.dropdown--open .dropdown__button svg :nth-child(1) {
-  -webkit-transform: rotate(30deg) translateY(12px);
-          transform: rotate(30deg) translateY(12px);
-}
-
-.page.about-page .menu .dropdown.dropdown--open .dropdown__button svg :nth-child(2) {
-  opacity: 0;
-}
-
-.page.about-page .menu .dropdown.dropdown--open .dropdown__button svg :nth-child(3) {
-  -webkit-transform: rotate(-30deg) translateY(-12px);
-          transform: rotate(-30deg) translateY(-12px);
-}
-
-.page.about-page .menu .dropdown.dropdown--open .dropdown__items {
-  margin-bottom: 10px;
-}
-
-.page.about-page .menu .background {
-  position: absolute;
-  inset: 0;
-  background-color: #000c;
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-}
-
-.page.about-page .menu .dropdown--open ~ .background {
-  opacity: 1;
-  pointer-events: all;
 }
 
 .page.about-page .sidebar {
@@ -320,6 +181,12 @@
 
 .page.about-page .info .card:nth-of-type(1) .content .image img:first-child {
   margin-top: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .page.about-page .menu {
+    display: none;
+  }
 }
 
 .page.about-page .instructions {

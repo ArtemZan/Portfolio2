@@ -7,131 +7,7 @@
 
     @media screen and (min-width: 600px) {
         padding: var(--xxl);
-    }
-
-    .menu {
-        position: fixed;
-        inset: 0;
-        z-index: 5;
-
-        @media screen and (min-width: 600px) {
-            display: none;
-        }
-
-        .dropdown {
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transform: translateY(calc(-100% + 70px));
-
-            transition: transform 0.5s, background-color 0.5s;
-
-            .dropdown__items {
-                z-index: 100;
-                color: white;
-                width: 100%;
-                border-bottom: 3px solid var(--green);
-                margin-bottom: 33px;
-                order: -1;
-                position: static;
-                background-color: black;
-                visibility: visible;
-
-                transition: margin-bottom 0.5s;
-
-                li
-                {
-                    padding: 30px var(--xl);
-
-                    
-                    .link
-                    {
-                        img
-                        {
-                            width: var(--xl)
-                        }
-
-                        display: flex;
-                        align-items: center;
-                        color: var(--cyan);
-                        font-size: var(--l);
-                        gap: var(--l);
-                    }
-                }
-            }
-
-            .dropdown__button {
-                color: var(--cyan);
-                background-color: transparent;                
-                position: relative;
-
-                &::before
-                {
-                    content: "";
-                    position: absolute;
-                    background-color: #0008;
-                    z-index: -1;
-                    inset: -10px;
-                    border-radius: 10px;
-                    backdrop-filter: blur(10px);
-                }
-
-                svg {
-                    width: 50px;
-                    overflow: visible;
-
-                    > * {
-                        transition: transform 0.5s, opacity 0.5s;
-                        stroke: var(--cyan);
-                        stroke-width: 4px;
-                        
-
-                        transform-origin: center;
-                    }
-                }
-            }
-
-            &.dropdown--open {
-                transform: translateY(0);
-                top: 0;
-
-                .dropdown__button svg {
-                    :nth-child(1) {
-                        transform: rotate(30deg) translateY(12px);
-                    }
-
-                    :nth-child(2) {
-                        opacity: 0;
-                    }
-
-                    :nth-child(3) {
-                        transform: rotate(-30deg) translateY(-12px);
-                    }
-                }
-
-                .dropdown__items
-                {
-                    margin-bottom: 10px;
-                }
-            }
-        }
-
-        .background
-        {
-            position: absolute;
-            inset: 0;
-            background-color: #000c;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s;
-        }
-        
-        .dropdown--open~.background
-        {
-            opacity: 1;
-            pointer-events: all;
-        }
+        padding-top: var(--m);
     }
 
     .sidebar {
@@ -279,6 +155,12 @@
                     margin-top: 30px;
                 }
             }
+        }
+    }
+
+    .menu {
+        @media screen and (min-width: 600px) {
+            display: none;
         }
     }
 

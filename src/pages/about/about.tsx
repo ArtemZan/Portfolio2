@@ -1,31 +1,7 @@
 import { useEffect, useRef, useState } from "react"
-import { Dropdown, Link, Position, Tooltip } from "../../components/Components";
+import { Link, Position, Tooltip } from "../../components/Components";
+import { Dropdown, Navbar } from "../components/components";
 import { Card, CardContent, ImageProps } from "./card"
-
-function Menu() {
-    const [closed, SetClosed] = useState(true)
-
-    return <div className="menu" >
-        <Dropdown
-            buttonContent={
-                <svg viewBox="0 0 50 32" >
-                    <line x1="0" y1="4" x2="50" y2="4" />
-                    <line x1="0" y1="16" x2="50" y2="16" />
-                    <line x1="0" y1="28" x2="50" y2="28" />
-                </svg>
-            }
-            items={[
-                <Link link="/"><img src="images/home.svg" alt="home" />Home</Link>,
-                <Link link="/contact"><img src="images/contact.svg" alt="contact" />Contact me</Link>,
-                <Link link="/projects"><img src="images/project.svg" alt="project" />Projects</Link>]}
-            closeOnSecondClick
-            closed={closed}
-            onOpen={() => SetClosed(false)}
-        />
-
-        <div className="background" onClick={e => { e.stopPropagation(); SetClosed(true) }} />
-    </div>
-}
 
 const cards: { text: string, image: ImageProps | (ImageProps[]) }[] = (() => {
     const myBirthday = new Date();
@@ -142,7 +118,7 @@ export default function About() {
     }, [])
 
     return <div className="page about-page">
-        <Menu />
+        <Dropdown currentPage = {1} />
 
         <div className="sidebar">
             <div className="navigation">
