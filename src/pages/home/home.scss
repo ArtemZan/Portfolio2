@@ -55,6 +55,22 @@
         > * {
             display: none;
             position: absolute;
+
+            img
+            {
+                width: 100%;
+                height: 100%;
+            }
+
+            &::before
+            {
+                content: "";
+
+                position: absolute;
+                display: block;
+                filter: blur(5px);
+                background-color: var(--green);
+            }
         }
 
         @media screen and (min-width: 600px) {
@@ -63,28 +79,85 @@
             }
         }
 
-        .arrow-1 {
+        >:first-child {
             width: calc(var(--xxl) * 11 - 410px);
             top: calc(var(--xxl) * 5.3 - 120px); //calc(35% + 18vw - 80px);
             left: var(--white-space);
+
+            overflow-x: hidden;
+
+            &::before {
+                width: 80px;
+                height: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+
+                animation: move1 2s linear 0.4s infinite;
+
+                @keyframes move1 {
+                    from
+                    {
+                        right: 100%;
+                    }
+                    30%
+                    {
+                        right: -90px;
+                    }
+                    to
+                    {
+                        right: -90px;
+                    }
+                }
+            }
         }
 
-        .arrow-2 {
+        >:nth-child(2) {
             width: calc(0.02 * var(--xxl) + 1px);
             height: calc(100% - var(--xxl) * 5.3 + 110px);
 
             top: calc(var(--xxl) * 5.3 - 110px);
             left: calc(var(--white-space) + 0.05 * var(--xxl) + 7px);
             background-color: var(--green);
+
+            &::before {
+                height: 80px;
+                width: 5px;
+                transform: translateX(-50%);
+
+                animation: move2 2s linear infinite;
+
+                @keyframes move2 {
+                    from
+                    {
+                        top: 100%;
+                    }
+                    15%
+                    {
+                        clip-path: inset(-15px -100px -15px -100px);
+                        top: 10px;
+                    }
+                    20%
+                    {
+                        clip-path: inset(100% -100px -15px -100px);
+                        top: -80px;
+                    }
+                    to
+                    {
+                        top: -80px;
+                        clip-path: inset(100% -100px -15px -100px);
+                    }
+                }
+            }
         }
 
-        .arrow-3 {
+        >:nth-child(3) {
             display: block;
             height: 150px;
 
             top: calc(var(--white-space) + var(--xxl) * 3);
             left: 50%;
             transform: translateX(-50%);
+            overflow-y: hidden;
 
             @media screen and (min-width: 600px) {
                 height: calc(var(--xxl) * 4 - 130px);
@@ -92,24 +165,86 @@
                 left: calc(var(--white-space) + var(--xxl) * 12 - 390px);
                 transform: initial;
             }
+
+            &::before {
+                height: 80px;
+                width: 5px;
+
+                left: 50%;
+                transform: translateX(-50%);
+
+                animation: move3 1.5s linear 1s infinite;
+
+                @keyframes move3 {
+                    from
+                    {
+                        bottom: 100%;
+                    }
+                    15%
+                    {
+                        clip-path: inset(-15px -100px -15px -100px);
+                        bottom: 10px;
+                    }
+                    20%
+                    {
+                        clip-path: inset(100% -100px -15px -100px);
+                        bottom: -80px;
+                    }
+                    to
+                    {
+                        bottom: -80px;
+                        clip-path: inset(100% -100px -15px -100px);
+                    }
+                }
+            }
         }
 
-        .arrow-4 {
+        >:nth-child(4) {
             height: calc(var(--xxl) * 0.02 + 0.5px);
             width: calc(100% - var(--white-space) - var(--xxl) * 12 + 410px);
             left: calc(var(--white-space) + var(--xxl) * 12.2 - 400px);
             top: calc(var(--white-space) + var(--xxl) * 0.15 - 6px);
             background-color: var(--green);
+            
+            &::before {
+                width: 80px;
+                height: 5px;
+                top: 50%;
+
+                transform: translateY(-50%);
+
+                animation: move4 1.5s linear 0.8s infinite;
+
+                @keyframes move4 {
+                    from
+                    {
+                        left: 100%;
+                    }
+                    7%
+                    {
+                        clip-path: inset(-15px -100px -15px -100px);
+                    }
+                    20%
+                    {
+                        left: -90px;
+                        clip-path: inset(-15px 0px -15px 100%);
+                    }
+                    to
+                    {
+                        left: -90px;
+                        clip-path: inset(-15px 0px -15px 100%);
+                    }
+                }
+            }
         }
     }
 
     .link.about {
-        
         white-space: nowrap;
         margin-top: 250px;
         margin-left: auto;
         margin-right: auto;
-        
+
         @media screen and (min-width: 600px) {
             font-size: var(--m);
             margin-left: calc(var(--xxl) * 12 - 380px);
@@ -124,14 +259,12 @@
         flex-direction: column;
         align-items: center;
 
-        .link
-        {
+        .link {
             &:first-child {
                 margin-bottom: 30px;
                 margin-right: 0;
             }
         }
-
 
         @media screen and (min-width: 600px) {
             display: block;
@@ -139,10 +272,9 @@
             margin-left: calc(var(--xxl) * 11 - 420px);
             transform: translateX(-50%);
 
-            .link
-            {
+            .link {
                 font-size: var(--m);
-    
+
                 &:first-child {
                     margin-right: calc(var(--xxl) * 1 - 50px);
                 }

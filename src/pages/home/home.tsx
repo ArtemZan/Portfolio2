@@ -1,5 +1,5 @@
 import { MutableRefObject, useEffect, useState } from "react";
-import {Button, Link} from "../../components/Components";
+import { Button, Link } from "../../components/Components";
 
 export default function Home(): JSX.Element {
     const [mobileView, SetMobile] = useState(window.innerWidth < 600)
@@ -42,16 +42,20 @@ export default function Home(): JSX.Element {
             <img src={mobileView ? "images/bg_mobile.png" : "images/bg_desktop.png"} alt="background" />
         </div>
         <div className="arrows">
-            <img className="arrow-1" src="images/arrow.svg" alt="arrow" />
+            <div className="arrow-1">
+                <img src="images/arrow.svg" alt="arrow" />
+            </div>
             <div className="arrow-2" />
-            <img className="arrow-3" src="images/arrow_vert.svg" alt="arrow" />
+            <div className="arrow-3">
+                <img src="images/arrow_vert.svg" alt="arrow" />
+            </div>
             <div className="arrow-4" />
         </div>
 
-        <Link hoverable primary className = "about" link = "/about" content = "About me"/>
-        <div className = "secondary-links">
-            <Link hoverable secondary link = "/projects">My projects</Link>
-            <Link hoverable secondary link = "/contact">Contact me</Link>
+        <Link hoverable primary className="about" link="/about" content="About me" />
+        <div className="secondary-links">
+            <Link hoverable secondary link="/projects">My projects</Link>
+            <Link hoverable secondary link="/contact">Contact me</Link>
         </div>
     </div>
 }
