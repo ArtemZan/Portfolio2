@@ -119,7 +119,6 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     }
 
     OnClickAnywhere(e: MouseEvent) {
-        console.log(this.state)
         if (!this.state.isHovered && this.state.isOpen && this.props.closeOnClickOutside) {
             e.stopPropagation()
 
@@ -138,8 +137,6 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
             
             return
         }
-
-        console.log("Clicked")
         
         if(!this.props.closed)
         {
@@ -158,7 +155,6 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     
     componentDidUpdate(prevProps: DropdownProps)
     {
-        console.log("Updated")
         if(prevProps.closed !== this.props.closed)
         {
             this.setState({isOpen: !this.props.closed})
