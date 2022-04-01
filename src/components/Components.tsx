@@ -45,10 +45,11 @@ function Button(props: ButtonProps) {
 
 type LinkPropsType = {
     link: string
+    newTab?: boolean
 } & ButtonOrLinkProps
 
 function Link(props: LinkPropsType) {
-    return <a className={CreateClassName("link", props)} href={props.link}>
+    return <a target = {props.newTab ? "_blank" : "_self"} className={CreateClassName("link", props)} href={props.link}>
         {props.content}
         {props.children}
     </a>

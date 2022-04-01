@@ -1,0 +1,57 @@
+.page.contact-page
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .navbar {
+        display: none;
+
+        @media screen and (min-width: 600px) {
+            display: flex;
+        }
+    }
+
+    .menu {
+        display: initial;
+        margin-bottom: 100px;
+        position: relative;
+
+        @media screen and (min-width: 600px) {
+            display: none;
+        }
+    }
+
+    header
+    {
+        text-align: center;
+        font-size: var(--xxl);
+        font-family: "Aldrich";
+        color: var(--cyan);
+        padding: 10px 20px;
+    }
+
+    .links
+    {
+        margin: auto 0;
+        padding: var(--xl) var(--xxl);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: var(--l);
+        background-color: var(--cyan-transparent);
+
+        .link
+        {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-size: var(--s);
+
+            i 
+            {
+                font-size: var(--m);
+            }
+        }
+    }
+}

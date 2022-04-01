@@ -11,6 +11,7 @@ body{
     --green: #2BD900;
     
     --cyan: #00FF85;
+    --cyan-transparent: #00FF8530;
     --dark-cyan: #006666;
 
     --xs: calc(10px);

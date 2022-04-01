@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { Link, Position, Tooltip } from "../../components/Components";
+import { Link, Position, Tooltip } from "../../components/components";
 import { Dropdown, Navbar } from "../components/components";
 import { Card, CardContent, ImageProps } from "./card"
 

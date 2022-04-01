@@ -1,5 +1,5 @@
-import { cloneElement, PropsWithChildren } from "react";
-import { Link } from "../../components/Components";
+import { PropsWithChildren } from "react";
+import { Link } from "../../components/components";
 import { Dropdown, Footer, Navbar } from "../components/components";
 
 type ProjectProps = PropsWithChildren<{
