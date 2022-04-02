@@ -21,7 +21,7 @@
 
 .button.primary,
 .link.primary {
-  background-color: var(--green);
+  background-color: var(--cyan);
   color: black;
 }
 

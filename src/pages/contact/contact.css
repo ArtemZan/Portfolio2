@@ -45,7 +45,6 @@
 
 .page.contact-page .links {
   margin: auto 0;
-  padding: var(--xl) var(--xxl);
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -55,7 +54,14 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: var(--l);
-  background-color: var(--cyan-transparent);
+}
+
+@media screen and (min-width: 400px) {
+  .page.contact-page .links {
+    padding: var(--xl) var(--xxl);
+    background-color: var(--cyan-transparent);
+    border: 3px solid var(--green);
+  }
 }
 
 .page.contact-page .links .link {
