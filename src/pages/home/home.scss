@@ -39,11 +39,31 @@
         inset: 0;
         z-index: -1;
 
-        > img {
-            height: 100%;
-            width: 100%;
+        > :first-child {
+            position: fixed;
+            left: -2vw;
+            top: calc(100px - 20vw);
+
+            height: calc(var(--xxl) * 5 - 50px);
+            width: calc(var(--xxl) * 7 - 50px);
+            background-color: #002424;
+            transform: rotate(45deg);
             object-fit: cover;
             object-position: left;
+        }
+
+        > :nth-child(2)
+        {
+            position: fixed;
+            left: calc(4 * var(--xxl) - 100px);
+            bottom: calc(650px - var(--xxl) * 7);
+
+            height: calc(var(--xxl) * 5 - 100px);
+            width: calc(var(--xxl) * 15 - 600px);
+            background-color: var(--cyan);
+            opacity: 0.05;
+
+            transform: rotate(-10deg);
         }
     }
 

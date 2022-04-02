@@ -47,13 +47,31 @@
   z-index: -1;
 }
 
-.page.home-page .background > img {
-  height: 100%;
-  width: 100%;
+.page.home-page .background > :first-child {
+  position: fixed;
+  left: -2vw;
+  top: calc(100px - 20vw);
+  height: calc(var(--xxl) * 5 - 50px);
+  width: calc(var(--xxl) * 7 - 50px);
+  background-color: #002424;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: left;
      object-position: left;
+}
+
+.page.home-page .background > :nth-child(2) {
+  position: fixed;
+  left: calc(4 * var(--xxl) - 100px);
+  bottom: calc(650px - var(--xxl) * 7);
+  height: calc(var(--xxl) * 5 - 100px);
+  width: calc(var(--xxl) * 15 - 600px);
+  background-color: var(--cyan);
+  opacity: 0.05;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
 }
 
 .page.home-page .arrows {
