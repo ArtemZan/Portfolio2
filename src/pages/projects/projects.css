@@ -55,6 +55,14 @@
 
 .page.projects-page .project {
   margin-top: var(--xxl);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
 }
 
 .page.projects-page .project header {
@@ -64,14 +72,19 @@
 }
 
 .page.projects-page .project p {
-  color: white;
   font-size: var(--s);
+  text-indent: 4ch;
+  line-height: 2ch;
 }
 
 @media screen and (min-width: 600px) {
   .page.projects-page .project p {
     padding: 20px;
   }
+}
+
+.page.projects-page .project p > * {
+  text-indent: 0;
 }
 
 .page.projects-page .project p .link {
@@ -83,6 +96,7 @@
 .page.projects-page .project video,
 .page.projects-page .project > img,
 .page.projects-page .project .images {
+  max-width: 960px;
   width: calc(100% + 40px);
   margin-left: -20px;
 }
@@ -92,7 +106,7 @@
   .page.projects-page .project > img,
   .page.projects-page .project .images {
     width: 100%;
-    margin: 20px 0;
+    margin: 20px auto;
   }
 }
 
@@ -108,10 +122,40 @@
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  max-width: none;
 }
 
 .page.projects-page .project .images > * {
   min-width: 0;
+}
+
+.page.projects-page .project .view {
+  margin: 0 auto;
+}
+
+.page.projects-page .project .view > .link,
+.page.projects-page .project .view > .button {
+  margin: 0 20px;
+}
+
+.page.projects-page .project .view > .embeded {
+  position: fixed;
+  inset: 0;
+}
+
+.page.projects-page .project .view > .embeded iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.page.projects-page .project .view > .embeded .button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.page.projects-page .project .view > .embeded .button i {
+  color: black;
 }
 
 .page.projects-page .coming-soon {

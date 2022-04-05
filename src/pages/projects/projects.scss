@@ -46,6 +46,9 @@
 
     .project {
         margin-top: var(--xxl);
+        display: flex;
+        flex-direction: column;
+        color: white;
 
         header {
             color: var(--cyan);
@@ -54,11 +57,17 @@
         }
 
         p {
-            color: white;
             font-size: var(--s);
+            text-indent: 4ch;
+            line-height: 2ch;
 
             @media screen and (min-width: 600px) {
                 padding: 20px;
+            }
+
+            >*
+            {
+                text-indent: 0;
             }
 
             .link {
@@ -71,12 +80,13 @@
         video,
         > img,
         .images {
+            max-width: 960px;
             width: calc(100% + 40px);
             margin-left: -20px;
 
             @media screen and (min-width: 600px) {
                 width: 100%;
-                margin: 20px 0;
+                margin: 20px auto;
             }
         }
 
@@ -86,9 +96,44 @@
             align-items: flex-end;
             justify-content: space-around;
             flex-wrap: wrap;
+            max-width: none;
 
             > * {
                 min-width: 0;
+            }
+        }
+
+        .view
+        {
+            margin: 0 auto;
+            
+            >.link,
+            >.button{
+                margin: 0 20px;
+            }
+
+            >.embeded
+            {
+                position: fixed;
+                inset: 0;
+
+                iframe
+                {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .button
+                {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    i
+                    {
+                        color: black;
+                    }
+                }
             }
         }
     }

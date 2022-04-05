@@ -1,6 +1,7 @@
 .button,
 .link
 {
+    cursor: pointer;
     text-decoration: none;
     display: inline-block;
     
@@ -23,6 +24,15 @@
     {
         background-color: var(--cyan);
         color: black;
+    }
+}
+
+.button
+{
+    &.primary,
+    &.secondary
+    {
+        border: none;
     }
 }
 
