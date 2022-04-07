@@ -69,10 +69,52 @@
   color: var(--cyan);
   font-size: var(--l);
   margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.page.projects-page .project header .tooltip {
+  font-size: var(--s);
+}
+
+.page.projects-page .project header .github__link,
+.page.projects-page .project header .github__button {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  font-size: var(--s);
+  margin: 20px;
+}
+
+.page.projects-page .project header .github__link i,
+.page.projects-page .project header .github__button i {
+  font-size: var(--m);
+}
+
+.page.projects-page .project header .window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  padding-top: 50px;
 }
 
 .page.projects-page .project p {
-  font-size: var(--s);
+  margin: 40px 10px;
+  font-size: var(--m);
   text-indent: 4ch;
   line-height: 2ch;
 }
@@ -131,16 +173,37 @@
 
 .page.projects-page .project .view {
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+  .page.projects-page .project .view {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 .page.projects-page .project .view > .link,
 .page.projects-page .project .view > .button {
   margin: 0 20px;
+  padding: 5px 10px;
 }
 
 .page.projects-page .project .view > .embeded {
   position: fixed;
   inset: 0;
+  z-index: 10;
 }
 
 .page.projects-page .project .view > .embeded iframe {

@@ -1,4 +1,4 @@
-import React, { Component, MouseEventHandler, PropsWithChildren, useEffect, useState } from "react"
+import React, { Children, Component, MouseEventHandler, PropsWithChildren, useEffect, useState } from "react"
 import { ProgressPlugin } from "webpack"
 
 type ButtonOrLinkProps = PropsWithChildren<{
@@ -181,6 +181,26 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
             </ul>
         </div>
     }
+}
+
+type WindowProps = PropsWithChildren<{
+    onClose: () => {}
+}>
+
+export function DialogWindow(props: WindowProps)
+{
+    function OnClose()
+    {
+        props.onClose()
+    }
+
+    return <div className="window-wrapper" onClick = {OnClose}>
+        <div className="window" onClick = {e => e.stopPropagation()}>
+            <Button className = "close" onClick = {OnClose}> <i className="fas fa-window-close"></i> </Button>
+
+            {props.children}
+        </div>
+    </div>
 }
 
 export { Button, Link, Tooltip, Position, Dropdown }
