@@ -43,11 +43,16 @@ function Card(props: CardProps) {
 
 
             setTimeout(() => {
+                if(ref.current === null)
+                {
+                    return
+                }
+
                 ref.current.style.visibility = "visible"
-                ref.current.style.height = height + "px";
+                ref.current.style.height = height + "px"
 
                 setTimeout(() => {
-                    ref.current.style.height = "auto"
+                    ref.current && (ref.current.style.height = "auto")
                 }, 700)
             }, 100)
         })
@@ -57,7 +62,7 @@ function Card(props: CardProps) {
         ref.current.style.height = window.getComputedStyle(ref.current).height;
 
         setTimeout(() => {
-            ref.current.style.height = "0px"
+            ref.current && (ref.current.style.height = "0px")
         });
 
         setTimeout(() => {

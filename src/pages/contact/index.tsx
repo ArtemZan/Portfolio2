@@ -3,8 +3,8 @@ import { Link } from "../../components"
 import { Dropdown, Navbar } from "../_components/components"
 
 export default function Contact() {
-    emailjs.init("lyMTVQZ1swds2baNr")
-    emailjs.send("service_jgrz3mj", "template_dd8908n", { subject: "Hi" }, "lyMTVQZ1swds2baNr").then(console.log).catch(e => console.log(e))
+    //emailjs.init("lyMTVQZ1swds2baNr")
+    //emailjs.send("service_jgrz3mj", "template_dd8908n", { subject: "Hi" }, "lyMTVQZ1swds2baNr").then(console.log).catch(e => console.log(e))
     return <div className="page contact-page">
         <Navbar currentPage={3}></Navbar>
         <Dropdown currentPage={3} />

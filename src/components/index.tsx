@@ -1,4 +1,5 @@
 import { Component, MouseEventHandler, PropsWithChildren } from "react"
+import NextLink from "next/link"
 
 type ButtonOrLinkProps = PropsWithChildren<{
     content?: any
@@ -48,10 +49,12 @@ type LinkPropsType = {
 } & ButtonOrLinkProps
 
 function Link(props: LinkPropsType) {
-    return <a target = {props.newTab ? "_blank" : "_self"} className={CreateClassName("link", props)} href={props.link}>
+    return <NextLink href={props.link}>
+        <a target = {props.newTab ? "_blank" : "_self"} className={CreateClassName("link", props)}>
         {props.content}
         {props.children}
     </a>
+    </NextLink> 
 }
 
 const enum Position {

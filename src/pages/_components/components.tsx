@@ -50,7 +50,7 @@ type NavbarProps = {
 
 function Navbar(props: NavbarProps) {
     return <div className="navbar">
-        {links.map((link, index) => <a key={index} className="hoverable" aria-disabled={index === props.currentPage} href={link.href}>{link.name}</a>)}
+        {links.map((link, index) => <Link key={index} className="hoverable" aria-disabled={index === props.currentPage} link={link.href}>{link.name}</Link>)}
     </div>
 }
 
