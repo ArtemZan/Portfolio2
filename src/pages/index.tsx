@@ -1,5 +1,5 @@
 import { MutableRefObject, useEffect, useState } from "react";
-import { Button, Link } from "../../components/components";
+import { Link } from "../components"
 
 export default function Home(): JSX.Element {
     return <div className="page home-page">

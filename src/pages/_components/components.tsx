@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Dropdown, Link } from "../../components/components"
+import { Dropdown, Link } from "../../components"
 
 const links = [
     { href: "/", icon: "home", name: "Home" },

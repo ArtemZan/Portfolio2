@@ -1,6 +1,4 @@
-@import "pages/pages.css";
-@import "components/components.css";
-@import "./Common.css";
+@import "./utils.css";
 
 
 body{
@@ -43,5 +41,5 @@ body{
 
 @font-face {
     font-family: "Aldrich";
-    src: url("fonts/Aldrich-Regular.ttf");
+    src: url("../../public/fonts/Aldrich-Regular.ttf");
 }

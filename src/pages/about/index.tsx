@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { Link, Position, Tooltip } from "../../components/components";
-import { Dropdown, Navbar } from "../components/components";
+import { Link, Position, Tooltip } from "../../components";
+import { Dropdown, Navbar } from "../_components/components";
 import { Card, CardContent, ImageProps } from "./card"
 
 const cards: { text: string, image: ImageProps | (ImageProps[]) }[] = (() => {
@@ -148,7 +148,7 @@ export default function About() {
         </div>
 
         <div className="info">
-            {...showedCards.current}
+            {showedCards.current}
         </div>
 
 

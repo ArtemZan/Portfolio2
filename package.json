@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --hot --open --mode development --port 3000",
-    "build": "webpack --config webpack.config.js"
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.2",
     "copy-webpack-plugin": "^10.2.4",
+    "next": "^12.1.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router": "^6.2.1",

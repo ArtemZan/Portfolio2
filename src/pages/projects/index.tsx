@@ -1,7 +1,7 @@
 import { PropsWithChildren, useContext, useState } from "react";
-import { bodyOverflowContext } from "../../BodyContext";
-import { Button, DialogWindow, Link, Tooltip } from "../../components/components";
-import { Dropdown, Footer, Navbar } from "../components/components";
+import { bodyOverflowContext } from "../_bodyContext";
+import { Button, DialogWindow, Link, Tooltip } from "../../components";
+import { Dropdown, Footer, Navbar } from "../_components/components";
 
 type GitHubLinks = string | {
     name: string,

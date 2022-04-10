@@ -49,7 +49,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     allowedHosts: [
-      "artem.loca.lt"
+      "*.loca.lt"
     ]
   }
 };

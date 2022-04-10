@@ -1,5 +1,4 @@
-import React, { Children, Component, MouseEventHandler, PropsWithChildren, useEffect, useState } from "react"
-import { ProgressPlugin } from "webpack"
+import { Component, MouseEventHandler, PropsWithChildren } from "react"
 
 type ButtonOrLinkProps = PropsWithChildren<{
     content?: any
