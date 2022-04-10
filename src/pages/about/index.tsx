@@ -39,6 +39,7 @@ export default function About() {
     const [cardsShowed, SetCardsShowed] = useState(0)
     const images = useRef<HTMLImageElement[]>([])
     const touchStartPos = useRef(-1)
+    const disableScroll = useRef(false)
 
     function OnClick() {
         if (document.scrollingElement.scrollTop >= document.scrollingElement.scrollHeight - window.innerHeight) {
@@ -47,8 +48,17 @@ export default function About() {
     }
 
     function OnScroll(e: WheelEvent) {
+        if(disableScroll.current)
+        {
+            return
+        }
+
         if (e.deltaY > 0 && document.scrollingElement.scrollTop >= document.scrollingElement.scrollHeight - window.innerHeight) {
             ShowNextCard()
+            disableScroll.current = true
+            setTimeout(() => {
+                disableScroll.current = false
+            }, 500)
         }
     }
 
