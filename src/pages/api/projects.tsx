@@ -1,8 +1,5 @@
-import { Dropdown, Footer, Navbar } from "../_components/components";
-import Project from "./project";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { cloneElement, createElement, ReactElement, useEffect, useRef, useState } from "react";
-import { responseSymbol } from "next/dist/server/web/spec-compliant/fetch-event";
+import { NextApiRequest, NextApiResponse } from "next";
+import Project from "../projects/project";
 
 const projects = [
     <Project title="Julemy" link="https://julemy.netlify.app/" github="https://github.com/ucha-se-2-0/frontend">
@@ -96,84 +93,28 @@ const projects = [
         <video src="images/projects/minecraft.mp4" controls></video>
         <video src="images/projects/waves.mp4" muted controls />
     </Project>
-]
+].map((project, index) => ({ ...project, key: index }))
 
-function MapChildrenToElements(children: ReactElement[] | ReactElement) {
-    if (!Array.isArray(children)) {
-        if (typeof children === "object") {
-            return <children.type {...children.props}>{MapChildrenToElements(children.props.children)}</children.type>
-        }
-
-        return children
+export default function Projects(req: NextApiRequest, res: NextApiResponse) {
+    
+    if (req.method !== "GET") {
+        return
     }
 
-    return children.map((child, index) => {
+    let args: {start: number, count: number} = {start: null, count: null}
+    args.start = parseInt(req.query.start as string)
+    args.count = parseInt(req.query.count as string)
+    
+    if(args.start >= projects.length)
+    {
+        res.status(400).send(null);
+        return
+    }
 
-        if (typeof child === "object") {
-            return <child.type {...child.props} key={index}>{MapChildrenToElements(child.props.children)}</child.type>
-        }
+    const end = Math.min(projects.length - 1, args.start + args.count)
 
-        return child
+    res.status(200).send({
+        projects: projects.slice(args.start, end),
+        left: projects.length - 1 - end
     })
-}
-
-export default function Projects() {
-    const [loadedProjects, SetLoadedProjects] = useState([])
-    const [projectsLeft, SetProjectsLeft] = useState(1)
-
-    useEffect(() => {
-        LoadNext()
-    }, [])
-
-    function LoadNext() {
-        console.log("Next project requested")
-
-        const req = new XMLHttpRequest()
-
-        req.open("GET", `http://localhost:3000/api/projects?start=${loadedProjects.length}&count=${1}`)
-
-        req.addEventListener("load", (e) => {
-            const resp = JSON.parse(req.response)
-
-            const projects = resp.projects.map((project: ReactElement, index: number) => {
-                return <Project key={loadedProjects.length + index} {...project.props}>
-                    {MapChildrenToElements(project.props.children)}
-                </Project>
-            })
-
-            SetProjectsLeft(resp.left)
-            SetLoadedProjects([...loadedProjects, ...projects])
-        })
-
-        req.send()
-    }
-
-    return <div className="page projects-page">
-        <Navbar currentPage={2}></Navbar>
-        <Dropdown currentPage={2} />
-
-        <img src="images/factory.svg" alt="factory" className="background" />
-
-        <header className="title">
-            My projects
-        </header>
-
-        <div className="content">
-            <InfiniteScroll
-                next={LoadNext}
-                hasMore={projectsLeft !== 0}
-                dataLength={loadedProjects.length}
-                loader={<h3 style={{ color: "white" }}>Loading...</h3>}
-                endMessage={<div className="coming-soon">
-                    New projects coming soon...
-                </div>}
-            >
-                {loadedProjects}
-            </InfiniteScroll>
-
-
-        </div>
-
-        <Footer currentPage={2} />
-    </div>
 }
