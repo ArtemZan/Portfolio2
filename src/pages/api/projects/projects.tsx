@@ -1,8 +1,8 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import Project from "../projects/project";
+import { ReactElement } from "react"
+import Project, { ProjectProps } from "../../projects/project"
 
-const projects = [
-    <Project title="Julemy" link="https://julemy.netlify.app/" github="https://github.com/ucha-se-2-0/frontend">
+export default [
+    <Project title="Julemy" link="https://julemy.netlify.app/" github="https://github.com/ucha-se-2-0/frontend" tags = {["React", "CSS", "SASS", "Javascript"]}>
         <img src="images/projects/julemy.png" alt="julemy" />
         <p>Julemy was supposed to be an educational website for chemistry and biology, but it failed because of bad management and overall bad business idea.
             Nevertheless I’ve done the website and I learnt a lot while doing it. This was my first website. Most of what I know about CSS and React I learnt by doing julemy.
@@ -93,28 +93,4 @@ const projects = [
         <video src="images/projects/minecraft.mp4" controls></video>
         <video src="images/projects/waves.mp4" muted controls />
     </Project>
-].map((project, index) => ({ ...project, key: index }))
-
-export default function Projects(req: NextApiRequest, res: NextApiResponse) {
-    
-    if (req.method !== "GET") {
-        return
-    }
-
-    let args: {start: number, count: number} = {start: null, count: null}
-    args.start = parseInt(req.query.start as string)
-    args.count = parseInt(req.query.count as string)
-    
-    if(args.start >= projects.length)
-    {
-        res.status(400).send(null);
-        return
-    }
-
-    const end = Math.min(projects.length - 1, args.start + args.count)
-
-    res.status(200).send({
-        projects: projects.slice(args.start, end),
-        left: projects.length - 1 - end
-    })
-}
+].map((project, index) => ({ ...project, key: index })) as ReactElement<ProjectProps>[]

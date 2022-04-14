@@ -1,10 +1,18 @@
 .navbar
 {
     display: flex;
+    z-index: 10;
     justify-content: flex-end;
+    padding: 10px 0;
     gap: var(--l);
     margin: var(--m);
     margin-bottom: var(--xl);
+    margin-top: 0;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(3px);
+    background-color: #0004;
+
 
     a
     {

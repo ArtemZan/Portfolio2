@@ -1,8 +1,9 @@
-import { Dropdown, Footer, Navbar } from "../_components/components";
+import { Dropdown, Footer, Navbar } from "../_components";
 import Project from "./project";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { cloneElement, createElement, ReactElement, useEffect, useRef, useState } from "react";
-import { responseSymbol } from "next/dist/server/web/spec-compliant/fetch-event";
+import { ReactElement, useEffect, useState } from "react";
+import { Button, DialogWindow, SearchField } from "../../components";
+import tags from "../api/projects/tags";
 
 const projects = [
     <Project title="Julemy" link="https://julemy.netlify.app/" github="https://github.com/ucha-se-2-0/frontend">
@@ -98,6 +99,68 @@ const projects = [
     </Project>
 ]
 
+type FiltersProps = {
+    tags: string[]
+    onUpdate: (tags: string[]) => void
+}
+
+function Filters(props: FiltersProps) {
+    const [selected, SetSelected] = useState<string[]>([])
+    const [tagsWindowOpen, SetTagsWindowState] = useState(false)
+    const [foundTags, SetFoundTags] = useState<string[]>([])
+    const [hasChanges, HasChanges] = useState(false)
+
+    useEffect(() => {
+        SetFoundTags(GetNotSelectedTags())
+
+        HasChanges(true)
+    }, [selected])
+
+    function GetNotSelectedTags() {
+        return [...props.tags].filter(tag => !selected.find(selTag => selTag === tag))
+    }
+
+    function OpenTagsWindow() {
+        SetTagsWindowState(true)
+
+        SetFoundTags(GetNotSelectedTags())
+    }
+
+    function AddTag() {
+        OpenTagsWindow()
+    }
+
+    function UpdateSearch(request: string) {
+        SetFoundTags(GetNotSelectedTags().filter(tag => tag.toLowerCase().search(request.toLowerCase()) !== -1))
+    }
+
+    function UpdateParent()
+    {
+        props.onUpdate(selected)
+
+        HasChanges(false)
+    }
+
+    return <div className="filters">
+        <header>Filter</header>
+        <div className="selected">
+            {selected.map((tag, index) =>
+                <Button hoverable primary onClick={() => SetSelected(selected.filter(selTag => selTag !== tag))} key={index}>
+                    {tag}
+                    <i className="fa fa-close"></i>
+                </Button>)}
+            <Button className="add-tags" onClick={AddTag} primary>+</Button>
+        </div>
+        {hasChanges && <Button primary onClick = {UpdateParent}>Update</Button>}
+        {tagsWindowOpen && <DialogWindow onClose={() => SetTagsWindowState(false)}>
+            <SearchField onInput={UpdateSearch} />
+            <div className="tags">
+                {foundTags.length ? foundTags.map(tag => <Button key = {tag} onClick={() => SetSelected([...selected, tag])} className="hoverable">{tag}</Button>) : "No results found"}
+            </div>
+        </DialogWindow>}
+    </div>
+}
+
 function MapChildrenToElements(children: ReactElement[] | ReactElement) {
     if (!Array.isArray(children)) {
         if (typeof children === "object") {
@@ -120,17 +183,25 @@ function MapChildrenToElements(children: ReactElement[] | ReactElement) {
 export default function Projects() {
     const [loadedProjects, SetLoadedProjects] = useState([])
     const [projectsLeft, SetProjectsLeft] = useState(1)
+    const [filters, SetFilters] = useState<string[]>([])
 
     useEffect(() => {
         LoadNext()
-    }, [])
+    }, [filters])
+
+    function FilterProjects(tags: string[])
+    {
+        SetFilters(tags)
+        SetLoadedProjects([])
+        SetProjectsLeft(1)
+    }
 
     function LoadNext() {
-        console.log("Next project requested")
+        console.log("Next project requested. Filters: " + filters)
 
         const req = new XMLHttpRequest()
 
-        req.open("GET", `http://localhost:3000/api/projects?start=${loadedProjects.length}&count=${1}`)
+        req.open("GET", `http://localhost:3000/api/projects?start=${loadedProjects.length}&count=${1}${filters.reduce((prev, filter) => prev + "&tags=" + filter, "")}`)
 
         req.addEventListener("load", (e) => {
             const resp = JSON.parse(req.response)
@@ -157,6 +228,8 @@ export default function Projects() {
         <header className="title">
             My projects
         </header>
+
+        <Filters onUpdate = {FilterProjects} tags={Array.from(tags)} />
 
         <div className="content">
             <InfiniteScroll

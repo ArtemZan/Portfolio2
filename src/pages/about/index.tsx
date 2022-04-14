@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Link, Position, Tooltip } from "../../components";
-import { Dropdown, Navbar } from "../_components/components";
+import { Dropdown, Navbar } from "../_components";
 import { Card, CardContent, ImageProps } from "./card"
 
 const cards: { text: string, image: ImageProps | (ImageProps[]) }[] = (() => {

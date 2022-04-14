@@ -1,7 +1,8 @@
 .page.projects-page {
   font-family: "Aldrich";
   position: relative;
-  overflow: auto;
+  overflow: visible;
+  border-top: 0.1px solid black;
 }
 
 .page.projects-page .navbar {
@@ -34,6 +35,78 @@
   left: 0;
 }
 
+.page.projects-page .title {
+  text-align: center;
+  color: var(--cyan);
+  font-size: var(--xxl);
+  text-shadow: 0px 0px 10px var(--green);
+  margin-top: 100px;
+}
+
+.page.projects-page .filters {
+  color: white;
+  width: calc(var(--xxl) * 6);
+  margin: auto;
+}
+
+.page.projects-page .filters > header {
+  padding: 20px;
+}
+
+.page.projects-page .filters .selected {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
+}
+
+.page.projects-page .filters .selected .button {
+  font-size: var(--s);
+  padding: 5px 10px;
+  background-color: white;
+}
+
+.page.projects-page .filters .selected .button i {
+  font-size: var(--xs);
+  padding: 0px 5px;
+}
+
+.page.projects-page .filters .selected .add-tags {
+  background-color: var(--cyan);
+  border-radius: 50%;
+  padding: 0;
+  width: var(--l);
+  height: var(--l);
+}
+
+.page.projects-page .filters .window .tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+.page.projects-page .filters .window .tags > div {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: var(--m);
+  background-color: white;
+  color: var(--dark-cyan);
+}
+
+.page.projects-page .filters .window .tags > div::after {
+  content: "+";
+  padding: 5px;
+}
+
 .page.projects-page .content {
   padding: 20px;
 }
@@ -43,14 +116,6 @@
     padding: var(--xxl);
     padding-top: var(--l);
   }
-}
-
-.page.projects-page .title {
-  text-align: center;
-  color: var(--cyan);
-  font-size: var(--xxl);
-  text-shadow: 0px 0px 10px var(--green);
-  margin-top: 100px;
 }
 
 .page.projects-page .project {
@@ -83,8 +148,9 @@
       flex-wrap: wrap;
 }
 
-.page.projects-page .project header .tooltip {
+.page.projects-page .project header .tooltip-wrapper {
   font-size: var(--s);
+  margin: 20px;
 }
 
 .page.projects-page .project header .github__link,
@@ -92,7 +158,6 @@
   -ms-flex-item-align: start;
       align-self: flex-start;
   font-size: var(--s);
-  margin: 20px;
 }
 
 .page.projects-page .project header .github__link i,

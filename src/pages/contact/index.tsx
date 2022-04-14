@@ -1,6 +1,6 @@
 import * as emailjs from "@emailjs/browser"
 import { Link } from "../../components"
-import { Dropdown, Navbar } from "../_components/components"
+import { Dropdown, Navbar } from "../_components"
 
 export default function Contact() {
     //emailjs.init("lyMTVQZ1swds2baNr")

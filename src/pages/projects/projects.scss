@@ -1,7 +1,9 @@
 .page.projects-page {
     font-family: "Aldrich";
     position: relative;
-    overflow: auto;
+    overflow: visible;
+
+    border-top: 0.1px solid black;
 
     .navbar {
         display: none;
@@ -27,6 +29,72 @@
         left: 0;
     }
 
+    .title {
+        text-align: center;
+        color: var(--cyan);
+        font-size: var(--xxl);
+        text-shadow: 0px 0px 10px var(--green);
+        margin-top: 100px;
+    }
+
+    .filters {
+        color: white;
+        width: calc(var(--xxl) * 6);
+        margin: auto;
+
+        > header {
+            padding: 20px;
+        }
+
+        .selected {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            
+            .button {
+                font-size: var(--s);
+                padding: 5px 10px;
+                background-color: white;
+
+                i {
+                    font-size: var(--xs);
+                    padding: 0px 5px;
+                }
+            }
+
+            .add-tags {
+                background-color: var(--cyan);
+                border-radius: 50%;
+                padding: 0;
+                width: var(--l);
+                height: var(--l);
+            }
+        }
+
+        .window {
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                padding: 10px;
+                > div {
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    font-size: var(--m);
+                    background-color: white;
+                    color: var(--dark-cyan);
+
+                    &::after {
+                        content: "+";
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+
     .content {
         padding: 20px;
 
@@ -34,14 +102,6 @@
             padding: var(--xxl);
             padding-top: var(--l);
         }
-    }
-
-    .title {
-        text-align: center;
-        color: var(--cyan);
-        font-size: var(--xxl);
-        text-shadow: 0px 0px 10px var(--green);
-        margin-top: 100px;
     }
 
     .project {
@@ -60,33 +120,28 @@
             text-align: center;
             flex-wrap: wrap;
 
-            .tooltip
-            {
-                font-size: var(--s)
+            .tooltip-wrapper {
+                font-size: var(--s);
+                margin: 20px;
             }
 
             .github__link,
             .github__button {
                 align-self: flex-start;
                 font-size: var(--s);
-                margin: 20px;
 
-                i
-                {
+                i {
                     font-size: var(--m);
                 }
-
             }
 
-            .window 
-            {
+            .window {
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
                 padding-top: 50px;
             }
         }
-
 
         p {
             margin: 40px 10px;

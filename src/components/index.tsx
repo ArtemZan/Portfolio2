@@ -1,4 +1,4 @@
-import { Component, MouseEventHandler, PropsWithChildren } from "react"
+import { ChangeEventHandler, Component, FormEvent, FormEventHandler, KeyboardEventHandler, MouseEventHandler, PropsWithChildren, useState } from "react"
 import NextLink from "next/link"
 
 type ButtonOrLinkProps = PropsWithChildren<{
@@ -50,11 +50,11 @@ type LinkPropsType = {
 
 function Link(props: LinkPropsType) {
     return <NextLink href={props.link}>
-        <a target = {props.newTab ? "_blank" : "_self"} className={CreateClassName("link", props)}>
-        {props.content}
-        {props.children}
-    </a>
-    </NextLink> 
+        <a target={props.newTab ? "_blank" : "_self"} className={CreateClassName("link", props)}>
+            {props.content}
+            {props.children}
+        </a>
+    </NextLink>
 }
 
 const enum Position {
@@ -125,7 +125,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
         if (!this.state.isHovered && this.state.isOpen && this.props.closeOnClickOutside) {
             e.stopPropagation()
 
-            this.setState({isOpen: false })
+            this.setState({ isOpen: false })
             this.props.onClose && this.props.onClose()
         }
     }
@@ -133,34 +133,30 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     OnClick(e: MouseEvent) {
         e.stopPropagation()
 
-        
+
         if (this.state.isOpen && this.props.closeOnSecondClick) {
             this.setState({ isOpen: false })
             this.props.onClose && this.props.onClose()
-            
+
             return
         }
-        
-        if(!this.props.closed)
-        {
+
+        if (!this.props.closed) {
             this.setState({ isOpen: true })
         }
 
         this.props.onOpen && this.props.onOpen()
     }
 
-    componentDidMount()
-    {
+    componentDidMount() {
         window.addEventListener("click", this.OnClickAnywhere.bind(this))
-        
+
         return () => window.removeEventListener("click", this.OnClickAnywhere.bind(this))
     }
-    
-    componentDidUpdate(prevProps: DropdownProps)
-    {
-        if(prevProps.closed !== this.props.closed)
-        {
-            this.setState({isOpen: !this.props.closed})
+
+    componentDidUpdate(prevProps: DropdownProps) {
+        if (prevProps.closed !== this.props.closed) {
+            this.setState({ isOpen: !this.props.closed })
         }
     }
 
@@ -173,7 +169,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
 
         this.props.className && (className += " " + this.props.className)
 
-        return <div onClick = {e => e.stopPropagation()} onMouseEnter={() => this.setState({ isHovered: true })} onMouseLeave={() => this.setState({ isHovered: false })} className={className}>
+        return <div onClick={e => e.stopPropagation()} onMouseEnter={() => this.setState({ isHovered: true })} onMouseLeave={() => this.setState({ isHovered: false })} className={className}>
             <button onClick={this.OnClick.bind(this)} className="dropdown__button">
                 {this.props.buttonContent}
             </button>
@@ -186,23 +182,52 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
 }
 
 type WindowProps = PropsWithChildren<{
-    onClose: () => {}
+    onClose: () => any
 }>
 
-export function DialogWindow(props: WindowProps)
-{
-    function OnClose()
-    {
+function DialogWindow(props: WindowProps) {
+    function OnClose() {
         props.onClose()
     }
 
-    return <div className="window-wrapper" onClick = {OnClose}>
-        <div className="window" onClick = {e => e.stopPropagation()}>
-            <Button className = "close" onClick = {OnClose}> <i className="fas fa-window-close"></i> </Button>
+    return <div className="window-wrapper" onClick={OnClose}>
+        <div className="window" onClick={e => e.stopPropagation()}>
+            <Button className="close" onClick={OnClose}> <i className="fas fa-window-close"></i> </Button>
 
             {props.children}
         </div>
     </div>
 }
 
-export { Button, Link, Tooltip, Position, Dropdown }
+type SearchFieldProps = {
+    onSearch: (request: string) => void
+} |
+{
+    onInput: (request: string) => void
+}
+
+function SearchField(props: SearchFieldProps) {
+    const [request, SetRequest] = useState("")
+
+    const OnInput: ChangeEventHandler<HTMLInputElement> = e => {
+        "onInput" in props && props.onInput(e.target.value)
+        SetRequest(e.target.value)
+    }
+
+    const OnKey: KeyboardEventHandler<HTMLInputElement> = e => {
+        if (e.key === "Enter") {
+            OnSearch()
+        }
+    }
+
+    const OnSearch = () => {
+        "onSearch" in props && props.onSearch(request)
+    }
+
+    return <div className="search">
+        <Button onClick={OnSearch}><i className="fas fa-search hoverable" /></Button>
+        <input type="text" onChange={OnInput} onKeyDown={OnKey} />
+    </div>
+}
+
+export { Button, Link, Tooltip, Position, DialogWindow, Dropdown, SearchField }

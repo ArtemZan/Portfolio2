@@ -27,10 +27,11 @@ function GitHubLinks(props: GitHubLinksProps) {
     </div>
 }
 
-type ProjectProps = PropsWithChildren<{
+export type ProjectProps = PropsWithChildren<{
     title: string,
     link?: string,
-    github?: GitHubLinks
+    github?: GitHubLinks,
+    tags?: string[]
 }>
 
 export default function Project(props: ProjectProps) {

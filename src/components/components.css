@@ -204,3 +204,25 @@
   border: none;
   color: white;
 }
+
+.search {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.search > i {
+  color: var(--cyan);
+}
+
+.search > input, .search > input:focus {
+  outline: none;
+  border: none;
+}
