@@ -61,7 +61,8 @@
   transition: transform 0.5s, background-color 0.5s, -webkit-transform 0.5s;
 }
 
-.menu .dropdown .dropdown__items {
+.menu .dropdown .dropdown__content {
+  height: auto;
   z-index: 100;
   color: white;
   width: 100vw;
@@ -77,11 +78,11 @@
   transition: margin-bottom 0.5s;
 }
 
-.menu .dropdown .dropdown__items li {
+.menu .dropdown .dropdown__content li {
   padding: 30px var(--xl);
 }
 
-.menu .dropdown .dropdown__items li a {
+.menu .dropdown .dropdown__content li a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,7 +94,7 @@
   gap: var(--l);
 }
 
-.menu .dropdown .dropdown__items li a img {
+.menu .dropdown .dropdown__content li a img {
   width: var(--xl);
 }
 

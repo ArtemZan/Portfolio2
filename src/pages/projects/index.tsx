@@ -108,13 +108,17 @@ function Filters(props: FiltersProps) {
     const [selected, SetSelected] = useState<string[]>([])
     const [tagsWindowOpen, SetTagsWindowState] = useState(false)
     const [foundTags, SetFoundTags] = useState<string[]>([])
-    const [hasChanges, HasChanges] = useState(false)
+    const [hasChanges, HasChanges] = useState<boolean>(null)
 
     useEffect(() => {
         SetFoundTags(GetNotSelectedTags())
 
-        HasChanges(true)
+        hasChanges !== null && HasChanges(true)
     }, [selected])
+
+    useEffect(() => {
+        HasChanges(false)
+    }, [])
 
     function GetNotSelectedTags() {
         return [...props.tags].filter(tag => !selected.find(selTag => selTag === tag))
@@ -142,7 +146,7 @@ function Filters(props: FiltersProps) {
     }
 
     return <div className="filters">
-        <header>Filter</header>
+        <header>Filters</header>
         <div className="selected">
             {selected.map((tag, index) =>
                 <Button hoverable primary onClick={() => SetSelected(selected.filter(selTag => selTag !== tag))} key={index}>
@@ -151,7 +155,7 @@ function Filters(props: FiltersProps) {
                 </Button>)}
             <Button className="add-tags" onClick={AddTag} primary>+</Button>
         </div>
-        {hasChanges && <Button primary onClick = {UpdateParent}>Update</Button>}
+        {hasChanges && <Button className = "update" primary onClick = {UpdateParent}>Update</Button>}
         {tagsWindowOpen && <DialogWindow onClose={() => SetTagsWindowState(false)}>
             <SearchField onInput={UpdateSearch} />
             <div className="tags">

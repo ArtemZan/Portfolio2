@@ -47,7 +47,8 @@
 
         transition: transform 0.5s, background-color 0.5s;
 
-        .dropdown__items {
+        .dropdown__content {
+            height: auto;
             z-index: 100;
             color: white;
             width: 100vw;

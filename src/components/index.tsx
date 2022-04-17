@@ -1,4 +1,4 @@
-import { ChangeEventHandler, Component, FormEvent, FormEventHandler, KeyboardEventHandler, MouseEventHandler, PropsWithChildren, useState } from "react"
+import { ChangeEventHandler, Component, ComponentType, FormEvent, FormEventHandler, Fragment, KeyboardEventHandler, MouseEventHandler, PropsWithChildren, useState } from "react"
 import NextLink from "next/link"
 
 type ButtonOrLinkProps = PropsWithChildren<{
@@ -98,7 +98,10 @@ type DropdownProps = {
     closeOnSecondClick?: boolean
     onOpen?: () => void
     onClose?: () => void
-    buttonContent: any
+    buttonWrapper?: ComponentType
+    buttonWrapperProps?: { [prop: string]: any }
+    buttonContent?: any,
+    buttonProps?: ButtonProps
     items: any[]
 }
 
@@ -112,7 +115,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
         super(props)
 
         this.state = {
-            isOpen: !props.closed,
+            isOpen: props.closed === false,
             isHovered: false
         }
     }
@@ -133,7 +136,6 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     OnClick(e: MouseEvent) {
         e.stopPropagation()
 
-
         if (this.state.isOpen && this.props.closeOnSecondClick) {
             this.setState({ isOpen: false })
             this.props.onClose && this.props.onClose()
@@ -148,16 +150,18 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
         this.props.onOpen && this.props.onOpen()
     }
 
-    componentDidMount() {
-        window.addEventListener("click", this.OnClickAnywhere.bind(this))
-
-        return () => window.removeEventListener("click", this.OnClickAnywhere.bind(this))
-    }
-
     componentDidUpdate(prevProps: DropdownProps) {
         if (prevProps.closed !== this.props.closed) {
             this.setState({ isOpen: !this.props.closed })
         }
+    }
+
+    componentDidMount() {
+        window.addEventListener("click", this.OnClickAnywhere.bind(this))
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("click", this.OnClickAnywhere.bind(this))
     }
 
     render() {
@@ -169,14 +173,21 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
 
         this.props.className && (className += " " + this.props.className)
 
-        return <div onClick={e => e.stopPropagation()} onMouseEnter={() => this.setState({ isHovered: true })} onMouseLeave={() => this.setState({ isHovered: false })} className={className}>
-            <button onClick={this.OnClick.bind(this)} className="dropdown__button">
-                {this.props.buttonContent}
-            </button>
+        const buttonWrapper = { comp: this.props.buttonWrapper || Fragment };
 
-            <ul className="dropdown__items">
-                {this.props.items.map((item, index) => <li key={index}>{item}</li>)}
-            </ul>
+        return <div className={className}>
+            <buttonWrapper.comp {...this.props.buttonWrapperProps}>
+                <Button {...this.props.buttonProps} onClick={this.OnClick.bind(this)} className={CreateClassName("dropdown__button", this.props.buttonProps || {})}>
+                    {this.props.buttonContent || this.props.buttonProps.children}
+                </Button>
+            </buttonWrapper.comp>
+
+            <div className="dropdown__content" onMouseEnter={() => this.setState({ isHovered: true })} onMouseLeave={() => this.setState({ isHovered: false })}>
+
+                <ul className="dropdown__items">
+                    {this.props.items.map((item, index) => <li key={index}>{item}</li>)}
+                </ul>
+            </div>
         </div>
     }
 }

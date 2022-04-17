@@ -38,20 +38,25 @@
     }
 
     .filters {
+        display: flex;
+        flex-direction: column;
         color: white;
         width: calc(var(--xxl) * 6);
+        max-width: 90%;
         margin: auto;
+        margin-top: var(--xxl);
 
         > header {
-            padding: 20px;
+            padding-bottom: 10px;
+            font-size: var(--m);
         }
 
         .selected {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
-            
+            gap: var(--s);
+
             .button {
                 font-size: var(--s);
                 padding: 5px 10px;
@@ -70,6 +75,13 @@
                 width: var(--l);
                 height: var(--l);
             }
+        }
+
+        .update {
+            margin: auto;
+            margin-top: 50px;
+            padding: 5px 20px;
+            font-size: var(--s)
         }
 
         .window {
@@ -129,10 +141,22 @@
             .github__button {
                 align-self: flex-start;
                 font-size: var(--s);
+                padding: 5px 20px;
 
                 i {
                     font-size: var(--m);
                 }
+            }
+            
+            .github__link > i
+            {
+                text-underline-offset: 1px;
+                text-decoration: underline 1px;
+            }
+
+            .github__button > i:first-child
+            {
+                margin-right: 10px;
             }
 
             .window {
