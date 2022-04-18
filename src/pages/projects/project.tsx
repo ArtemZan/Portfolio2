@@ -12,7 +12,6 @@ type GitHubLinksProps = {
 }
 
 function GitHubLinks(props: GitHubLinksProps) {
-    const [isWindowOpened, SetWindowOpened] = useState(false)
 
     if (typeof props.github === "string") {
         return <Tooltip tooltip="See the project on GitHub">
@@ -33,7 +32,6 @@ function GitHubLinks(props: GitHubLinksProps) {
             buttonProps={{
                 className: "github__button",
                 secondary: true,
-                onClick: SetWindowOpened.bind(null, true),
                 children: [
                     <i className="fab fa-github hoverable" key = {0}/>,
                     <i className="fas fa-caret-down hoverable" key = {1}/>
@@ -74,6 +72,9 @@ export default function Project(props: ProjectProps) {
             {props.github && <GitHubLinks github={props.github} />}
         </header>
 
+        <ul className="tags">
+            {props.tags.map((tag, index) => <li key = {index}>{tag}</li>)}
+        </ul>
 
         {props.children}
 

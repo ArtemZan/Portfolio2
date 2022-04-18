@@ -1,8 +1,14 @@
 import { ReactElement } from "react"
+import { web } from "webpack"
 import Project, { ProjectProps } from "../../projects/project"
 
+const tags = {
+    web: ["CSS", "HTML", "Javascript"],
+    sass: ["SASS", "SCSS"]
+}
+
 export default [
-    <Project title="Julemy" link="https://julemy.netlify.app/" github="https://github.com/ucha-se-2-0/frontend" tags = {["React", "CSS", "SASS", "Javascript"]}>
+    <Project title="Julemy" link="https://julemy.netlify.app/" github="https://github.com/ucha-se-2-0/frontend" tags = {["React", "Educational website", ...tags.web, ...tags.sass]}>
         <img src="images/projects/julemy.png" alt="julemy" />
         <p>Julemy was supposed to be an educational website for chemistry and biology, but it failed because of bad management and overall bad business idea.
             Nevertheless I’ve done the website and I learnt a lot while doing it. This was my first website. Most of what I know about CSS and React I learnt by doing julemy.
@@ -13,7 +19,7 @@ export default [
     </Project>,
 
     <Project
-        title="It’s not about you" link="https://not-about-you.netlify.app" github="https://github.com/ArtemZan/inay">
+        title="It’s not about you" link="https://not-about-you.netlify.app" github="https://github.com/ArtemZan/inay" tags = {["React",  ...tags.web, ...tags.sass]}>
         <img src="images/projects/inay.png" alt="it_is_not_about_you_website" />
         <p>
             “It’s not about you” is a website for a book for small kids. I just needed some practice with SASS/SCSS and React as well so I found a random design that I can just implement. This website has only the home page
@@ -22,7 +28,8 @@ export default [
 
     <Project
         title="Rentomed"
-        github="https://github.com/ArtemZan/rentomed">
+        github="https://github.com/ArtemZan/rentomed"
+        tags = {["React", ...tags.web]}>
         <div className="images">
             <img src="images/projects/rentomed_1.png" alt="rentomed" style={{ flexBasis: "100px", flexGrow: 1, maxWidth: "300px" }} />
             <img src="images/projects/rentomed_3.png" alt="rentomed" style={{ flexBasis: "100px", flexGrow: 1, maxWidth: "300px" }} />
@@ -34,7 +41,7 @@ export default [
         </p>
     </Project>,
 
-    <Project title="Artic" github="https://github.com/ArtemZan/Weather">
+    <Project title="Artic" github="https://github.com/ArtemZan/Weather" tags = {["React", "Weather forecast", ...tags.web, "HTML canvas", ...tags.sass]}>
         <video src="images/projects/artic.webm" controls />
         <p>"Artic" (yes, I spelled it correctly) is a weather forecast website that I've created with purpose to challenge myself and to practice my frontends skills. It works really simple, just enter location in the input section and press the button to get forecast for 2 weeks.
             I used ready API weather.visualcrossing.com. There were some challenging tasks in this project like adjusting the temperature diagram and wind directions to match the timeline, determining the color of diagram at a certain point depending on the temperature and other.
@@ -50,7 +57,8 @@ export default [
             name: "Backend",
             link: "https://github.com/ArtemZan/tanks-io-backend"
         }
-    ]}>
+    ]}
+    tags = {["Online game", "Real-time application", "React", "Websockets", "SignalR", ...tags.web, "HTML canvas", "C#", "ASP.NET", "Box2D"]}>
         <p>"TanksIO" is an online 2D game with tanks. The first set of technoclogies for this project was React, Javascript and SocketIO.js on frontend and Node.js, Javascript, Express.js with SocketIO.js on backend. Although I followed the rules of functional programming,
             I didn't manage to make backend scalable. This is why I decided to migrate it to ASP.NET and SignalR and I don't regret. For convenience I replaced SocketIO with SignalR on frontend as well. Also I replaced Javascript with Typescript. All the physics is implemented
             on the backend using Box2D library (.NET standart of it)</p>
@@ -60,7 +68,8 @@ export default [
 
     <Project
         title="GoGram API"
-        github="https://github.com/ArtemZan/GoGram">
+        github="https://github.com/ArtemZan/GoGram"
+        tags={["API", "MongoDB", "Mongoose", "Express.js", "Node.js", "Multer", "GridFS"]}>
         <div className="images">
             <img src="images/projects/gogram.png" alt="gogram" style={{ maxWidth: "100%", width: "600px" }} />
         </div>
@@ -70,7 +79,7 @@ export default [
         </p>
     </Project>,
 
-    <Project title="Personal website" github="https://github.com/ArtemZan/portfolio">
+    <Project title="Personal website" github="https://github.com/ArtemZan/portfolio" tags = {["Personal", "Portfolio", "Next.js", "React", ...tags.web, ...tags.sass]}>
         <video src="images/projects/personal.mp4" controls />
         <p>
             This is my first attempt to create pesonal website. I turned out to be not so simple to create 3D website that doesn't look boring so I gave up and I haven't finished this project

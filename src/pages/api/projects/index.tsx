@@ -53,8 +53,7 @@ export default function Projects(req: NextApiRequest, res: NextApiResponse) {
         }
     })
 
-    console.log(matchPoints)
-    matchPoints = matchPoints.filter(match => match.points).sort((a, b) => a.points - b.points)
+    matchPoints = matchPoints.filter(match => match.points).sort((a, b) => b.points - a.points)
 
     
     if (start >= matchPoints.length) {

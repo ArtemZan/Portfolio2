@@ -88,13 +88,16 @@
             .tags {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 10px;
+                column-gap: var(--m);
+                row-gap: var(--s);
 
                 padding: 10px;
-                > div {
+
+                > .button {
                     padding: 5px 10px;
                     border-radius: 5px;
-                    font-size: var(--m);
+                    border: none;
+                    font-size: var(--s);
                     background-color: white;
                     color: var(--dark-cyan);
 
@@ -164,6 +167,25 @@
                 flex-direction: column;
                 gap: 20px;
                 padding-top: 50px;
+            }
+        }
+
+        .tags
+        {
+            list-style: none;
+            display: flex;
+            gap: var(--s);
+            flex-wrap: wrap;
+
+            li
+            {
+                background-color: white;
+                border-radius: 5px;
+
+                color: black;
+                font-size: var(--s);
+
+                padding: 5px 10px;
             }
         }
 

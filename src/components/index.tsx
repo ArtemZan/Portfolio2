@@ -101,7 +101,7 @@ type DropdownProps = {
     buttonWrapper?: ComponentType
     buttonWrapperProps?: { [prop: string]: any }
     buttonContent?: any,
-    buttonProps?: ButtonProps
+    buttonProps?: ButtonOrLinkProps & {onClick?: MouseEventHandler<HTMLButtonElement>}
     items: any[]
 }
 
@@ -133,7 +133,9 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
         }
     }
 
-    OnClick(e: MouseEvent) {
+    OnClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        this.props.buttonProps.onClick &&  this.props.buttonProps.onClick(e)
+
         e.stopPropagation()
 
         if (this.state.isOpen && this.props.closeOnSecondClick) {
