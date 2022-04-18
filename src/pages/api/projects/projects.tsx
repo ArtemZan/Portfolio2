@@ -79,21 +79,21 @@ export default [
         </p>
     </Project>,
 
-    <Project title="Personal website" github="https://github.com/ArtemZan/portfolio" tags = {["Personal", "Portfolio", "Next.js", "React", ...tags.web, ...tags.sass]}>
+    <Project title="Personal website" github="https://github.com/ArtemZan/portfolio" tags = {["Personal", "Portfolio", "Three.js", "HTML canvas", "React", ...tags.web, ...tags.sass]}>
         <video src="images/projects/personal.mp4" controls />
         <p>
             This is my first attempt to create pesonal website. I turned out to be not so simple to create 3D website that doesn't look boring so I gave up and I haven't finished this project
         </p>
     </Project>,
 
-    <Project title="Matrices by vectors multiplication" link="https://upbeat-keller-015d4d.netlify.app/" github="https://github.com/ArtemZan/Matrices-visualization">
+    <Project title="Matrices by vectors multiplication" link="https://upbeat-keller-015d4d.netlify.app/" github="https://github.com/ArtemZan/Matrices-visualization" tags = {[...tags.web]}>
         <p>
             This website is a demo for matrices by vertices multiplication.
 
         </p>
     </Project>,
 
-    <Project title="Other">
+    <Project title="Other" tags = {["HTML canvas", "Threee.js", ...tags.web]}>
         <p>
             Here are some projects that were my acquaintance with HTML canvas and three.js (these were my first frontend projects):
         </p>
