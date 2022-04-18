@@ -202,22 +202,33 @@
     .window
     {
         position: relative;
+        box-sizing: border-box;
         margin: auto;
-        padding: 30px;
+        width: 90%;
 
         border-radius: 5px;
         border: 3px solid var(--green);
-        background-color: var(--dark-cyan);
-
+        background-color: black;
+        
         .button.close
         {
-            position: absolute;
             top: 5px;
             right: 5px;
             padding: 0;
+            margin: 10px;
             background: none;
             border: none;
             color: white;
+            float: right;
+        }
+        
+        .window__content
+        {
+            padding: var(--m);
+            padding-top: 0;
+            clear: right;
+            overflow: auto;
+            max-height: 80vh;
         }
     }
 }
@@ -238,6 +249,8 @@
 
     >input
     {
+        width: 100%;
+
         &,
         &:focus
         {

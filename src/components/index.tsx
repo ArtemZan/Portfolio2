@@ -1,5 +1,6 @@
-import { ChangeEventHandler, Component, ComponentType, FormEvent, FormEventHandler, Fragment, KeyboardEventHandler, MouseEventHandler, PropsWithChildren, useState } from "react"
+import { ChangeEventHandler, Component, ComponentType, FormEvent, FormEventHandler, Fragment, KeyboardEventHandler, MouseEventHandler, PropsWithChildren, useContext, useEffect, useState } from "react"
 import NextLink from "next/link"
+import { bodyOverflowContext } from "../pages/_bodyContext"
 
 type ButtonOrLinkProps = PropsWithChildren<{
     content?: any
@@ -101,7 +102,7 @@ type DropdownProps = {
     buttonWrapper?: ComponentType
     buttonWrapperProps?: { [prop: string]: any }
     buttonContent?: any,
-    buttonProps?: ButtonOrLinkProps & {onClick?: MouseEventHandler<HTMLButtonElement>}
+    buttonProps?: ButtonOrLinkProps & { onClick?: MouseEventHandler<HTMLButtonElement> }
     items: any[]
 }
 
@@ -134,7 +135,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     }
 
     OnClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-        this.props.buttonProps.onClick &&  this.props.buttonProps.onClick(e)
+        this.props.buttonProps?.onClick && this.props.buttonProps.onClick(e)
 
         e.stopPropagation()
 
@@ -199,15 +200,25 @@ type WindowProps = PropsWithChildren<{
 }>
 
 function DialogWindow(props: WindowProps) {
+    const context = useContext(bodyOverflowContext)
+
+    useEffect(() => {
+        context.SetOverflow(false)
+    }, [])
+
     function OnClose() {
         props.onClose()
+
+        context.SetOverflow(true)
     }
 
     return <div className="window-wrapper" onClick={OnClose}>
         <div className="window" onClick={e => e.stopPropagation()}>
             <Button className="close" onClick={OnClose}> <i className="fas fa-window-close"></i> </Button>
 
-            {props.children}
+            <div className="window__content">
+                {props.children}
+            </div>
         </div>
     </div>
 }

@@ -42,18 +42,17 @@ export default function About() {
     const disableScroll = useRef(false)
 
     function OnClick() {
-        if (document.scrollingElement.scrollTop >= document.scrollingElement.scrollHeight - window.innerHeight) {
+        if (document.scrollingElement.scrollTop + 20 >= document.scrollingElement.scrollHeight - window.innerHeight) {
             ShowNextCard()
         }
     }
 
     function OnScroll(e: WheelEvent) {
-        if(disableScroll.current)
-        {
+        if (disableScroll.current) {
             return
         }
 
-        if (e.deltaY > 0 && document.scrollingElement.scrollTop >= document.scrollingElement.scrollHeight - window.innerHeight) {
+        if (e.deltaY > 0 && document.scrollingElement.scrollTop + 5 >= document.scrollingElement.scrollHeight - window.innerHeight) {
             ShowNextCard()
             disableScroll.current = true
             setTimeout(() => {
@@ -62,15 +61,12 @@ export default function About() {
         }
     }
 
-    function OnTouchStart(e: TouchEvent)
-    {
+    function OnTouchStart(e: TouchEvent) {
         touchStartPos.current = e.touches[0].clientY
     }
-    
-    function OnTouchEnd(e: TouchEvent)
-    {
-        if(e.touches[0].clientY < touchStartPos.current && document.scrollingElement.scrollTop >= document.scrollingElement.scrollHeight - window.innerHeight)
-        {
+
+    function OnTouchEnd(e: TouchEvent) {
+        if (e.touches[0].clientY < touchStartPos.current && document.scrollingElement.scrollTop + 20 >= document.scrollingElement.scrollHeight - window.innerHeight) {
             ShowNextCard()
         }
     }
@@ -87,6 +83,7 @@ export default function About() {
         </Card>)
 
         SetCardsShowed(showedCards.current.length)
+        console.log(showedCards, cards)
     }
 
     useEffect(() => {
@@ -128,7 +125,7 @@ export default function About() {
     }, [])
 
     return <div className="page about-page">
-        <Dropdown currentPage = {1} />
+        <Dropdown currentPage={1} />
 
         <div className="sidebar">
             <div className="navigation">

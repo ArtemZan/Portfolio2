@@ -51,6 +51,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: white;
   width: calc(var(--xxl) * 6);
   max-width: 90%;
@@ -70,6 +73,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: var(--s);
@@ -213,9 +219,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: var(--s);
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding: 0;
 }
 
 .page.projects-page .project .tags li {

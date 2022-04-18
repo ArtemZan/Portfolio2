@@ -73,7 +73,7 @@ export default function Project(props: ProjectProps) {
         </header>
 
         <ul className="tags">
-            {props.tags.map((tag, index) => <li key = {index}>{tag}</li>)}
+            {props.tags?.map((tag, index) => <li key = {index}>{tag}</li>)}
         </ul>
 
         {props.children}
