@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@emailjs/browser": "^3.5.0",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
