@@ -218,7 +218,6 @@
         > img,
         .images {
             max-width: 960px;
-            width: calc(100% + 40px);
             margin-left: -20px;
 
             @media screen and (min-width: 600px) {

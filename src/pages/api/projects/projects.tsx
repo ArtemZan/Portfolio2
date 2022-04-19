@@ -58,7 +58,7 @@ export default [
             link: "https://github.com/ArtemZan/tanks-io-backend"
         }
     ]}
-    tags = {["Online game", "Real-time application", "React", "Websockets", "SignalR", ...tags.web, "HTML canvas", "C#", "ASP.NET", "Box2D"]}>
+    tags = {["Online game", "API", "Real-time application", "React", "Websockets", "SignalR", ...tags.web, "HTML canvas", "C#", "ASP.NET", "Box2D"]}>
         <p>"TanksIO" is an online 2D game with tanks. The first set of technoclogies for this project was React, Javascript and SocketIO.js on frontend and Node.js, Javascript, Express.js with SocketIO.js on backend. Although I followed the rules of functional programming,
             I didn't manage to make backend scalable. This is why I decided to migrate it to ASP.NET and SignalR and I don't regret. For convenience I replaced SocketIO with SignalR on frontend as well. Also I replaced Javascript with Typescript. All the physics is implemented
             on the backend using Box2D library (.NET standart of it)</p>

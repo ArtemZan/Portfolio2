@@ -242,8 +242,8 @@
   gap: 10px;
 }
 
-.search > i {
-  color: var(--cyan);
+.search i {
+  color: var(--dark-cyan);
 }
 
 .search > input {

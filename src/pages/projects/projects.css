@@ -263,7 +263,6 @@
 .page.projects-page .project > img,
 .page.projects-page .project .images {
   max-width: 960px;
-  width: calc(100% + 40px);
   margin-left: -20px;
 }
 

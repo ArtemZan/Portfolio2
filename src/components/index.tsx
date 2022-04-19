@@ -224,14 +224,22 @@ function DialogWindow(props: WindowProps) {
 }
 
 type SearchFieldProps = {
-    onSearch: (request: string) => void
-} |
-{
-    onInput: (request: string) => void
+    onSearch?: (request: string) => void
+    onInput?: (request: string) => void
+    value?: string
+    searchButton?: boolean
 }
 
 function SearchField(props: SearchFieldProps) {
     const [request, SetRequest] = useState("")
+
+    if ("onInput" in props && "onSearch" in props) {
+        props
+    }
+
+    useEffect(() => {
+        SetRequest(props.value || "")
+    }, [props.value])
 
     const OnInput: ChangeEventHandler<HTMLInputElement> = e => {
         "onInput" in props && props.onInput(e.target.value)
@@ -249,8 +257,12 @@ function SearchField(props: SearchFieldProps) {
     }
 
     return <div className="search">
-        <Button onClick={OnSearch}><i className="fas fa-search hoverable" /></Button>
-        <input type="text" onChange={OnInput} onKeyDown={OnKey} />
+        {props.searchButton ?
+            <Button onClick={OnSearch}><i className="fas fa-search hoverable" /></Button>
+            :
+            <i className="fas fa-search" />
+        }
+        <input value={request} type="text" onChange={OnInput} onKeyDown={OnKey} />
     </div>
 }
 
