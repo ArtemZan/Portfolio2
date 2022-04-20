@@ -1,6 +1,6 @@
 import { ChangeEventHandler, Component, ComponentType, FormEvent, FormEventHandler, Fragment, KeyboardEventHandler, MouseEventHandler, PropsWithChildren, useContext, useEffect, useState } from "react"
 import NextLink from "next/link"
-import { bodyOverflowContext } from "../pages/_bodyContext"
+import bodyOverflowContext from "./bodyContext"
 
 type ButtonOrLinkProps = PropsWithChildren<{
     content?: any

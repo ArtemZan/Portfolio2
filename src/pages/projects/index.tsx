@@ -1,4 +1,4 @@
-import { Dropdown, Footer, Navbar } from "../_components";
+import { Dropdown, Footer, Navbar } from "../../components/default";
 import Project from "./project";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ReactElement, useEffect, useState } from "react";

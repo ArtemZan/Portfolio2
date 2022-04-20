@@ -1,4 +1,3 @@
-import { MutableRefObject, useEffect, useState } from "react";
 import { Link } from "../components"
 
 export default function Home(): JSX.Element {

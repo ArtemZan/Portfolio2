@@ -1,5 +1,5 @@
 import { useState, PropsWithChildren, useContext, useEffect, Children } from "react"
-import { bodyOverflowContext } from "../_bodyContext"
+import bodyOverflowContext from "../../components/bodyContext"
 import { Tooltip, Link, Button, DialogWindow, Dropdown } from "../../components"
 
 type GitHubLinks = string | {

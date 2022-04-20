@@ -1,4 +1,4 @@
-import { BodyOverflowProvider } from "./_bodyContext"
+import BodyOverflowProvider from "../components/bodyContext/provider"
 import Head from "next/head"
 
 import "../styles/global.css"
