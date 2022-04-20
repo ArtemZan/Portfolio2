@@ -119,7 +119,7 @@ export default function Projects() {
     function LoadNext() {
         const req = new XMLHttpRequest()
 
-        req.open("GET", `http://localhost:3000/api/projects?start=${loadedProjects.length}&count=${1}${filters.reduce((prev, filter) => prev + "&tags=" + filter, "")}`)
+        req.open("GET", `/api/projects?start=${loadedProjects.length}&count=${1}${filters.reduce((prev, filter) => prev + "&tags=" + filter, "")}`)
 
         req.addEventListener("load", (e) => {
             const resp = JSON.parse(req.response)
