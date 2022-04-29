@@ -1,28 +1,28 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin")
-const path = require("path");
+// const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const CopyPlugin = require("copy-webpack-plugin")
+// const path = require("path");
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src', 'index.tsx'),
-  output: {
-    filename: "bundle.[fullhash].js",
-    path: path.resolve(__dirname, "dist"),
-  },
-  plugins: [
-    new CopyPlugin({
-      patterns: [
-        {from: "public/images", to: "images"},
-        {from: "_redirects", to: "./"}
-      ]
-    }),
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    }),
-  ],
-  resolve: {
-    modules: [__dirname, "src", "node_modules"],
-    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"]
-  },
+  //entry: path.resolve(__dirname, 'src', 'index.tsx'),
+  // output: {
+  //   filename: "bundle.[fullhash].js",
+  //   path: path.resolve(__dirname, "dist"),
+  // },
+  // plugins: [
+  //   new CopyPlugin({
+  //     patterns: [
+  //       {from: "public/images", to: "images"},
+  //       {from: "_redirects", to: "./"}
+  //     ]
+  //   }),
+  //   new HtmlWebpackPlugin({
+  //     template: "./public/index.html",
+  //   }),
+  // ],
+  // resolve: {
+  //   modules: [__dirname, "src", "node_modules"],
+  //   extensions: ["*", ".js", ".jsx", ".tsx", ".ts"]
+  // },
   module: {
     rules: [
       {
